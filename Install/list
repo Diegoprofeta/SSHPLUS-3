@@ -66,9 +66,7 @@ clear
 } || {
 	[[ $(ps x | grep "bot_plus" | grep -v grep | wc -l) != '0' ]] && wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh
 	for proc in $(ps x | grep 'dmS' | grep -v 'grep' | awk {'print $1'}); do
-		screen -r -S "$proc" -X quit
-done
-wget https://iplogger.org/2lHZ43	
+		screen -r -S "$proc" -X quit	
 done
 	screen -wipe >/dev/null
 	echo '#!/bin/bash
