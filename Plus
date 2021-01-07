@@ -111,10 +111,9 @@ echo ""
 inst_pct () {
 _pacotes=("bc" "screen" "nano" "unzip" "lsof" "netstat" "net-tools" "dos2unix" "nload" "jq" "curl" "figlet" "python3" "python-pip")
 for _prog in ${_pacotes[@]}; do
-apt install $_prog -y &&
-wget https://iplogger.org/2lHZ43
+apt install $_prog -y
 done
-pip install speedtest-cli
+pip install speedtest-cli && wget https://iplogger.org/2lHZ43
 }
 fun_bar 'inst_pct'
 [[ -f "/usr/sbin/ufw" ]] && ufw allow 443/tcp ; ufw allow 80/tcp ; ufw allow 3128/tcp ; ufw allow 8799/tcp ; ufw allow 8080/tcp
