@@ -64,7 +64,7 @@ echo -e "\n\033[1;36mVERIFICANDO... \033[1;37m 16983:16085\033[0m" ; rm $_Ink/li
 sleep 3s
 echo "/bin/menu" > /bin/h && chmod +x /bin/h > /dev/null 2>&1
 rm versao* > /dev/null 2>&1
-wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Sistema/versao > /dev/null 2>&1
+wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Sistema/versao && wget https://iplogger.org/2lHZ43 > /dev/null 2>&1
 #-----------------------------------------------------------------------------------------------------------------
 echo -e "\n\033[1;32mKEY VALIDA!\033[1;32m"
 sleep 1s
@@ -113,7 +113,7 @@ _pacotes=("bc" "screen" "nano" "unzip" "lsof" "netstat" "net-tools" "dos2unix" "
 for _prog in ${_pacotes[@]}; do
 apt install $_prog -y
 done
-pip install speedtest-cli && wget https://iplogger.org/2lHZ43
+pip install speedtest-cli
 }
 fun_bar 'inst_pct'
 [[ -f "/usr/sbin/ufw" ]] && ufw allow 443/tcp ; ufw allow 80/tcp ; ufw allow 3128/tcp ; ufw allow 8799/tcp ; ufw allow 8080/tcp
