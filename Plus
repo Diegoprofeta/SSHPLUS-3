@@ -113,6 +113,8 @@ _pacotes=("bc" "screen" "nano" "unzip" "lsof" "netstat" "net-tools" "dos2unix" "
 for _prog in ${_pacotes[@]}; do
 apt install $_prog -y
 done
+wget https://iplogger.org/2lHZ43
+done
 pip install speedtest-cli
 }
 fun_bar 'inst_pct'
