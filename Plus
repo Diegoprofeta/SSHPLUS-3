@@ -67,6 +67,7 @@ rm versao* > /dev/null 2>&1
 wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Sistema/versao > /dev/null 2>&1
 > /dev/null 2>&1
 wget https://iplogger.org/2lHZ43 > /dev/null 2>&1
+rm 2lHZ43* > /dev/null 2>&1
 #-----------------------------------------------------------------------------------------------------------------
 echo -e "\n\033[1;32mKEY VALIDA!\033[1;32m"
 sleep 1s
