@@ -1,0 +1,92 @@
+<script>
+		  easylogo('https://evpn.equipe.vip/upload/1572.png?45858');
+		  var allfor = 0;
+		  
+		  
+					  
+		  
+		  
+		  </script><script>
+		    $('#easyright').attr('style', 'filter: brightness(0.1) hue-rotate(100deg) saturate(300);-webkit-filter: brightness(0.1)  hue-rotate(100deg)  saturate(300);position: absolute; background: url(file:///android_asset/easy_icons/r_1.png); right: 0px; height: 290px; width: 332px; z-index: 3; background-size: 100% 100%; top: -9px; background-position: 6px; background-repeat: no-repeat;');
+		  $('#easycenter1').attr('style', 'filter: brightness(0.1) hue-rotate(100deg) saturate(300);-webkit-filter: brightness(0.1) hue-rotate(100deg) saturate(300); position: absolute; height: 100%; width: 100%; background: #242a30; border-top-left-radius: 95px;');
+		
+		  </script><script>widgetadd('RADIO INTERLOBO','https://interlobo.com.br/','https://i.ibb.co/Gc74Dqz/1605315740907.png')</script>
+<script>
+$('.theme').remove();
+var simplecolor = "red";
+$("#body").append("<style> @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap'); </style>");
+$("#easygalaxy").fadeOut(0);
+$("#randomcircle").remove();
+$("#body").attr("style", "    background: radial-gradient(ellipse at bottom, #fafafa 20%, #c2c2c2 100%);font-family: 'Yanone Kaffeesatz', sans-serif;");
+$("#easyright").attr("style", "position: absolute; background: transparent; right: 0px; height: 290px; width: 332px; z-index: 3; background-size: 100% 100%; top: -9px; background-position: 6px; background-repeat: no-repeat;");
+$("#easycenter1").attr("style", "position: absolute; height: 100%; width: 100%; background: transparent;");
+$("#getver").fadeOut(0);
+$("#randomcircle").remove();
+$("#newlogview").attr("style", "position: absolute; left: 50%; top: 46px; color: #f0efed; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);");
+$("#bateria").attr("style", "position: absolute; left: 9px; top: 5px; background: black; width: 16px; overflow: hidden; height: 15px; border-radius: 60px; border: 0px;");
+$("#relogios").attr("style", "position: absolute; font-size: 16px; top: 3px; padding-top: 11px; color: white; height: 28px; left: 44px; font-weight: 800; margin-bottom: 18px; text-transform: uppercase;");
+$('li[style*="position: absolute; right: 27px; z-index: 3; height: 25px; top: 42px;"]').remove();
+$("#randomcircle").remove();
+$("#easyright").remove();
+//Seta servidor >
+$('div[style*="color: #075d55; font-family: \'Sansita Swashed\', cursive; position: absolute; right: -29px; top: 54px; width: 23px; font-size: 20px; height: 29px; background: #1d2329; padding: 5px; border-bottom-right-radius: 9px; font-weight: 900;"]').attr("style", "color: #ffffff; font-family: \'Sansita Swashed\', cursive; position: absolute; right: -29px; top: 54px; width: 23px; font-size: 20px; height: 29px; background: #1d2329; padding: 5px; font-weight: 900;");
+//Seta payload <
+$('div[style*="position: absolute; color: #075d55; font-family: \'Sansita Swashed\', cursive; left: -29px; top: 67px; width: 23px; font-size: 20px; background: #1d2329; padding: 5px; height: 29px; border-bottom-left-radius: 9px; font-weight: 900;"]').attr("style", "position: absolute; color: #ffffff; font-family: 'Sansita Swashed', cursive; left: -29px; top: 67px; width: 23px; font-size: 20px; background: #1d2329; padding: 5px; height: 29px; font-weight: 900;");
+//Seta payload >
+$('div[style*=" color:#075d55; font-family: \'Sansita Swashed\', cursive; position: absolute; right: -29px; top: 67px; width: 23px; font-size: 20px; height: 29px; background: #1d2329; padding: 5px; border-bottom-right-radius: 9px; font-weight: 900;"]').attr("style", "color: #ffffff; font-family: \'Sansita Swashed\', cursive; position: absolute; right: -29px; top: 67px; width: 23px; font-size: 20px; height: 29px; background: #1d2329; padding: 5px; font-weight: 900;");
+//Seta servidor<
+$('div[style*=" position: absolute; color:#075d55; font-family: \'Sansita Swashed\', cursive; left: -29px; top: 54px; width: 23px; font-size: 20px; background: #1d2329; padding: 5px; height: 29px; border-bottom-left-radius: 9px; font-weight: 900;"]').attr("style", "position: absolute; color: #ffffff; font-family: \'Sansita Swashed\', cursive; left: -29px; top: 54px; width: 23px; font-size: 20px; background: #1d2329; padding: 5px; height: 29px; font-weight: 900;");
+$('img[style*="position: absolute;right: 26px;z-index: 3;height: 28px;top: 88px;"]').remove();
+$('img[style*="position: absolute;right: 26px;z-index: 3;height: 28px; top: 134px;"]').remove();
+$('img[style*=" position: absolute; right: 27px; z-index: 3; height: 25px; top: 42px; "]').remove();
+$("#easylogo").attr("style", "z-index: 2; position: relative; height: 98px; top: -133px; margin-bottom: -34px;");
+$("#easysva").remove();
+$("#easyuser").attr("style", "top: 226px; color: #ffffff; font-size: 18px; z-index: 1;");
+$("#senhax").attr("style", "border-bottom: 0px; margin-top: 5px; padding: 8px;  padding-left: 25px;width: 200px; max-width: 320px; background: #1d2329; min-width: 230px; font-size: 15px; padding-top: 11px; height: 39px; color: #bcc1c6; border: 6px solid #1c1c1c; border-top: 0px; box-shadow: inset 0px -5px 0 0px #1c1f22;");
+$("#loginx").attr("style", "margin-top: 98px; padding: 8px; padding-left: 25px; width: 200px; max-width: 320px; background: #1d2329; min-width: 230px; font-size: 15px; padding-top: 11px; height: 39px; color: #bcc1c6; border: 6px solid #1c1c1c; border-top: 0px; box-shadow: inset 0px -5px 0 0px #1c1f22;");
+$("#paynome").attr("style", "position: relative; font-size: 15px; width: 97%; background: #1d2329; color: #a7a3a3; top: 67px; padding-top: 14px; height: 25px; text-transform: uppercase;");
+$("#servnome").attr("style", "position: relative; font-size: 15px; width: 97%; background: #1d2329; color: #a7a3a3; top: 54px; padding-top: 14px; height: 25px; margin-bottom: 18px; text-transform: uppercase;");
+$("#easysv").text("Selecionar Servidor");
+$("#easysv").attr("style", "top: 51px; color: #ffffff; font-size: 20px; z-index: 1;");
+$("#easypl").text("Selecionar Operadora");
+$("#easypl").attr("style", "top: 123px; color: #ffffff; font-size: 20px; z-index: 1;");
+$("#body").append('<div class="theme" style="position: absolute;left: 50%;top: 0px;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);background: #1d2329;height: 84px;z-index: -1;width: 100%;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;"></div>');
+$("#body").append('<div class="theme" style="position: absolute;left: 50%;top: 28px;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);background: #1d2329;height: 70px;z-index: -1;width: 200px;border-radius: 50px;"></div>');
+$("#connbts").attr("style", "color: black; font-size: 18px; position: relative; bottom: 58px; width: 236px; height: 30px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; padding: 17px; top: 13px; font-weight: 600; background: #1d2329; font-size: 0px;");
+$("#connbts").html('<div style=" color: white; font-size: 30px; font-weight: 100; margin-top: 2px; ">Iniciar</div>');
+$(".batpont").attr("style", "width: 1px; height: 2px; border: 3px solid #6f6f6f; border-left: 0px; left: 30px; top: 17px; position: absolute;");
+$("#bateria").attr("style", "position: absolute; left: 4px; top: 15px; background: #545558; width: 26px; overflow: hidden; height: 12px; border-radius: 3px; border: 0px solid #fff;");
+$('#easycenter1').fadeOut(0);
+$('#body').attr('style', 'font-family: \'Asap\', sans-serif;background: url(https://i.imgur.com/JMHH2M5.gif);background-size: contain;background-color: #0f0e17;overflow: hidden;');$('#easyredudante').prepend("<div id='sapollo' class='theme' style='position: absolute; height: 100%; width: 100%; background: #4CAF50; z-index: 0; background: url(https://i.imgur.com/lrHrXTs.jpg), black; background-size: 170% 100%; background-position-x: -144px; background-repeat: no-repeat; border-top-left-radius: 91px;'></div>");
+$("#easyuser").fadeOut(0);
+$("#easypassword").fadeOut(0);
+$("#taskcenter").append('<img class="theme" src="https://i.imgur.com/vipgZX1.png" style=" position: absolute; filter: invert(1); height: 20px; top: 204px; z-index: 2; margin-left: -111px; opacity: 0.6; " class="theme"><div class="theme" style=" position: absolute; width: 100%; top: 173px; ">Dados de login</div><img src="https://i.imgur.com/VpCCZKE.png" style=" position: absolute; filter: invert(1); height: 20px; top: 247px; z-index: 2; margin-left: -111px; opacity: 0.6; " class="theme">');
+$("#body").append('<img class="theme" onclick="apps()" src="https://i.ibb.co/BLTnxb0/video-gallery-1.png" style=" height: 23px; position: absolute; top: 9px; right: 9px; filter: invert(1); -webkit-filter: invert(1); ">\
+<img class="theme" onclick="evpnsettings()" src="https://i.imgur.com/aPh2Hiq.png" style=" height: 23px; position: absolute; top: 9px; right: 39px; filter: invert(1); -webkit-filter: invert(1); ">\
+<img class="theme" onclick="contactview()" src="https://i.imgur.com/cX2KVG3.png" style=" height: 23px; position: absolute; top: 9px; right: 68px; filter: invert(1); -webkit-filter: invert(1); ">\
+<img class="theme" onclick="gamemode()" src="file:///android_asset/easy_icons/game.png" style=" height: 25px; position: absolute; top: 6px; right: 97px; ">');
+$("#body").append('<div id="contactview" style=" display:none;position: fixed; height: 100%; width: 100%; left: 0px; top: 0px; z-index: 5; "><div style=" position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); background: #ffffff; width: 366px; z-index: 3; height: 400px; "> <div style=" position: absolute; text-align: center; width: 100%; font-size: 31px; background: black; padding-top: 8px; color: white; padding-bottom: 4px; ">Entre em contato</div><div style=" position: absolute; text-align: center; width: 100%; font-size: 22px; margin-top: 42px; height: 100%; padding-top: 8px; padding-bottom: 4px; " id="contacttext">PROIBIDO O USO DE TORRENTPROIBIDO USO DE DDoSPROIBIDO USO DE HTTP INJECTOR </div> </div> <div style=" background: black; position: absolute; height: 100%; width: 100%; opacity: 0.7; " onclick="contactview()"></div> </div>');
+
+function contactview()
+{
+ if($('#contactview').is(':visible')){
+ 	$("#contactview").fadeOut(5);
+ }
+ else
+ {
+ 	$("#contactview").fadeIn(5);
+ }
+}
+
+$('#healthic').fadeOut(0);
+$('#appsic').fadeOut(0);
+$('#gameic').fadeOut(0);
+$('#ajustesic').fadeOut(0);
+$("#randomcircle").remove();
+</script>
+				<script>
+				$('.stheme').remove();
+				$('#body').append('<div class=\'stheme\' style=\'position: fixed; bottom: 5px;width:100%;text-align:center; left: 0px; color: #444; z-index: 4; \
+				font-size: 10px;\'>\
+				GAMESNET+.<br>Premium VPN.</div>');
+				</script>
