@@ -1,0 +1,26 @@
+{
+    "update":[{
+            "updateurl":"http://update.polarismeet.me/config_gl.json",
+            "version":"1.0.0"
+             }],
+    "servers":[
+            {"serverid":0,"servername":"CONECT4G","flag":"PH","sshserver":"rodvps.ddns.net","sshport":80,"proxyserver":"rodvps.ddns.net","proxyport":80},
+            {"serverid":1,"servername":"GAMESNET","flag":"PH","sshserver":"gamesnet4g.duckdns.org","sshport":80,"proxyserver":"gamesnet4g.duckdns.org","proxyport":80}
+            ],
+    "payloads":[{
+                    "payloadid":0,
+                    "payloadname":"VIVO",
+                    "config":"HTTP/1.0 [crlf]Host: http://google.com/[crlf]Connection:User-Agent Accept-Encoding[crlf]Referer: http://m.youtube.com/[crlf] http://m.espn.com/[crlf]Accept-Encoding-Host: http://Netflix.com/[crlf]:Connection http://localhost/[crlf][crlf]r/n",
+                    "autorecon":1,
+                    "recontime":"55",
+                    "telco":"globe"
+                },{
+                    "payloadid":1,
+                    "payloadname":"VIVO 02",
+                    "config":"HTTP/1.1 [lf]CONNECT HTTP/1.1[lf][lf]|[lf]",
+                    "autorecon":1,
+                    "recontime":"55",
+                    "telco":"globe"
+                
+ }]
+}
