@@ -1,6 +1,6 @@
 {
     "update":[{
-            "updateurl":"http://update.polarismeet.me/config_gl.json",
+            "updateurl":"https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/config.json",
             "version":"1.0.0"
              }],
     "servers":[
