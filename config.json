@@ -11,8 +11,8 @@
                     "payloadid":0,
                     "payloadname":"VIVO",
                     "config":"HTTP/1.0 [crlf]Host: http://google.com/[crlf]Connection:User-Agent Accept-Encoding[crlf]Referer: http://m.youtube.com/[crlf] http://m.espn.com/[crlf]Accept-Encoding-Host: http://Netflix.com/[crlf]:Connection http://localhost/[crlf][crlf]r/n",
-                    "autorecon":0,
-                    "recontime":"",
+                    "autorecon":1,
+                    "recontime":"10000",
                     "telco":"globe"
                 },{
                     "payloadid":1,
