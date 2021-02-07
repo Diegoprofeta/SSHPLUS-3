@@ -1,10 +1,10 @@
 {
     "update":[{
             "updateurl":"https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/config.json",
-            "version":"1.0.1"
+            "version":"1.0.2"
              }],
     "servers":[
-            {"serverid":0,"servername":"CONECT4G","flag":"PH","sshserver":"rodvps.ddns.net","sshport":80,"proxyserver":"rodvps.ddns.net","proxyport":80},
+            {"serverid":0,"servername":"CONECT4G 2","flag":"PH","sshserver":"rodvps.ddns.net","sshport":80,"proxyserver":"rodvps.ddns.net","proxyport":80},
             {"serverid":1,"servername":"GAMESNET","flag":"PH","sshserver":"gamesnet4g.duckdns.org","sshport":80,"proxyserver":"gamesnet4g.duckdns.org","proxyport":80}
             ],
     "payloads":[{
