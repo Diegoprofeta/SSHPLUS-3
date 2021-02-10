@@ -1319,10 +1319,10 @@ exit 0' >$RCLOCAL
 					sleep 1
 					screen -dmS proxy python /etc/SSHPlus/proxy.py $porta
 					[[ $(grep -wc "proxy.py" /etc/autostart) = '0' ]] && {
-						echo -e "netstat -tlpn | grep -w $porta > /dev/null || screen -dmS proxy python /etc/SSHPlus/proxy.py $porta" >>/etc/autostart
+						echo -e "netstat -tlpn | grep -w $porta > /dev/null || screen -X -S proxy quit || screen -dmS proxy python /etc/SSHPlus/proxy.py $porta" >>/etc/autostart
 					} || {
 						sed -i '/proxy.py/d' /etc/autostart
-						echo -e "netstat -tlpn | grep -w $porta > /dev/null || screen -dmS proxy python /etc/SSHPlus/proxy.py $porta" >>/etc/autostart
+						echo -e "netstat -tlpn | grep -w $porta > /dev/null || screen -X -S proxy quit || screen -dmS proxy python /etc/SSHPlus/proxy.py $porta" >>/etc/autostart
 					}
 				}
 				echo ""
