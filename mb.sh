@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo "INFORME SEU NÚMERO (DDD+NÚMERO)"
 read SEU NUMERO
 echo "QUANTIDADE DE VEZES (1GB = 20VEZES)"
