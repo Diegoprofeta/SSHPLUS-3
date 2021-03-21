@@ -2,7 +2,7 @@
 clear
 echo "INFORME SEU NÚMERO (DDD+NÚMERO)"
 read NUMERO
-echo "QUANTIDADE DE VEZES (1GB = 20VEZES)"
+echo "QUANTIDADE DE VEZES (1GB = 20)"
 read VEZES
 for i in $(seq $VEZES);
 do
