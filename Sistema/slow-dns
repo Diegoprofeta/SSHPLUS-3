@@ -26,7 +26,9 @@ installslowdns() {
     mkdir /etc/SSHPlus/dns >/dev/null 2>&1
     wget -P $DIR sshplus.net/scripts/slow-dns/dns-server >/dev/null 2>&1  
     chmod 777 $DIR/dns-server >/dev/null 2>&1
-    $DIR/wget ...
+    cd /etc/SSHPlus/dns >/dev/null 2>&1
+    wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Sistema/server.pub && https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Sistema/server.pub >/dev/null 2>&1
+    cd >/dev/null 2>&1
     configdns() {
         interface=$(ip a |awk '/state UP/{print $2}'| cut -d: -f1)
         iptables -F >/dev/null 2>&1
