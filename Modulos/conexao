@@ -6,7 +6,7 @@
 #	CONTATO TELEGRAM:	http://t.me/crazy_vpn
 #	CANAL TELEGRAM:	http://t.me/sshplus
 #====================================================
-[[ $(awk -F" " '{print $2}' /usr/lib/licence) == "@KIRITOSSHXD" ]] && {
+[[ $(awk -F" " '{print $2}' /usr/lib/licence) == "@CRAZY_VPN" ]] && {
 	ram1=$(free -h | grep -i mem | awk {'print $2'})
 	ram2=$(free -h | grep -i mem | awk {'print $4'})
 	ram3=$(free -h | grep -i mem | awk {'print $3'})
@@ -567,7 +567,7 @@
 					#cat cert.pem key.pem >>/etc/stunnel/stunnel.pem
 					#rm key.pem cert.pem >/dev/null 2>&1
 					sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-					cd /etc/stunnel && wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/stunnel.pem && cd $HOME
+					cd /etc/stunnel && wget sshplus.xyz/script/stunnel.pem && cd $HOME
 				}
 				fun_bar 'ssl_certif'
 				echo -e "\n\033[1;32mINICIANDO O SSL TUNNEL !\033[0m"
@@ -1071,7 +1071,7 @@
 			# Adquirindo easy-rsa
 			echo ""
 			fun_dep() {
-				wget -O ~/EasyRSA-3.0.1.tgz "https://github.com/rodrigo12xd/SSHPLUS/raw/master/Install/EasyRSA-3.0.1.tgz"
+				wget -O ~/EasyRSA-3.0.1.tgz "https://github.com/OpenVPN/easy-rsa/releases/download/3.0.1/EasyRSA-3.0.1.tgz"
 				[[ ! -e $HOME/EasyRSA-3.0.1.tgz ]] && {
 					wget -O ~/EasyRSA-3.0.1.tgz "http://sshplus.xyz/script/EasyRSA-3.0.1.tgz"
 				}
