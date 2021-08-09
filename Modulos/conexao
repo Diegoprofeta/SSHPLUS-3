@@ -1339,12 +1339,7 @@ exit 0' >$RCLOCAL
 				sleep 3
 				fun_socks
 			fi
-
-
-
-
-
-            if [[ "$resposta" = '2' ]]; then
+        elif [[ "$resposta" = '2' ]]; then
 			if ps x | grep -w proxy.py | grep -v grep 1>/dev/null 2>/dev/null; then
 				clear
 				echo -e "\E[41;1;37m             WEBSOCKET              \E[0m"
@@ -1399,13 +1394,6 @@ exit 0' >$RCLOCAL
 				sleep 3
 				fun_socks
 			fi
-
-
-
-
-
-
-
 		elif [[ "$resposta" = '3' ]]; then
 			if ps x | grep -w open.py | grep -v grep 1>/dev/null 2>/dev/null; then
 				clear
