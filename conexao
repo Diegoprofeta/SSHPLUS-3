@@ -590,7 +590,8 @@
 			}
 		fi
 	}
-	inst_wsssl () {
+
+	fun_wsssl () {
           comando[0]="$1"
           comando[1]="$2"
           (
@@ -618,37 +619,40 @@
          tput cnorm
 		 echo -e "\033[1;31m---------------------------------------------------\033[1;37m"
         }
-		clear&&clear
-		echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
-		echo -e "\033[1;32m              WEBSOCKET SSL "
-		echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
-		echo -e "\033[1;37m      WEBSOCKET SSH USARÁ A PORTA 443
-		echo
-		echo -e "\033[1;33m                 INSTALANDO SSL... "
-		inst_wsssl () {
-			apt-get install stunnel4 -y
-			echo -e "client = no\n[SSL]\ncert = /etc/stunnel/stunnel.pem\naccept = 443 \nconnect = 127.0.0.1:80" > /etc/stunnel/stunnel.conf
-			openssl genrsa -out stunnel.key 2048 > /dev/null 2>&1
-			(echo "" ; echo "" ; echo "" ; echo "" ; echo "" ; echo "" ; echo "@cloudflare" )|openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt 
-			cat stunnel.crt stunnel.key > stunnel.pem 
-			mv stunnel.pem /etc/stunnel/
-			sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-			service stunnel4 restart 
-			rm -rf /etc/ger-frm/stunnel.crt 
-			rm -rf /etc/ger-frm/stunnel.key
-			rm -rf /root/stunnel.crt
-			rm -rf /root/stunnel.key
-			
-			}
-			fun_bar 'inst_wsssl'
-			echo -e "\033[1;33m                 CONFIGURANDO SSL.. "
-			fun_bar 'inst_wsssl'
-			read -p "  STATUS DE CONEXÃO :" msgbanner
-			[[ "$msgbanner" = "" ]]&& msgbanner="SSL + Pay"
-			echo 
-			echo -e "                 INSTALAÇÃO CONCLUÍDA "
-			echo 
-			fun_conexao
+        
+clear&&clear
+echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
+echo -e "\033[1;32m              WEBSOCKET SSL "
+echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
+echo -e "\033[1;37m      WEBSOCKET SSH USARÁ A PORTA 443
+echo
+echo -e "\033[1;33m                 INSTALANDO SSL... "
+inst_wsssl () {
+
+apt-get install stunnel4 -y
+echo -e "client = no\n[SSL]\ncert = /etc/stunnel/stunnel.pem\naccept = 443 \nconnect = 127.0.0.1:80" > /etc/stunnel/stunnel.conf
+openssl genrsa -out stunnel.key 2048 > /dev/null 2>&1
+(echo "" ; echo "" ; echo "" ; echo "" ; echo "" ; echo "" ; echo "@cloudflare" )|openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt 
+cat stunnel.crt stunnel.key > stunnel.pem 
+mv stunnel.pem /etc/stunnel/
+sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
+service stunnel4 restart 
+rm -rf /etc/ger-frm/stunnel.crt 
+rm -rf /etc/ger-frm/stunnel.key
+rm -rf /root/stunnel.crt
+rm -rf /root/stunnel.key
+
+}
+fun_bar 'inst_wsssl'
+echo -e "\033[1;33m                 CONFIGURANDO SSL.. "
+fun_bar 'inst_wsssl'
+read -p "  STATUS DE CONEXÃO :" msgbanner
+[[ "$msgbanner" = "" ]]&& msgbanner="SSL + Pay"
+echo 
+echo -e "                 INSTALAÇÃO CONCLUÍDA "
+
+echo 
+fun_conexao
 
 	fun_openvpn() {
 		if readlink /proc/$$/exe | grep -qs "dash"; then
