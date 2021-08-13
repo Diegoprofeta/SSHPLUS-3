@@ -1493,6 +1493,7 @@ exit 0' >$RCLOCAL
 			fi
 		elif [[ "$resposta" = '5' ]]; then
 			if ps x | grep -w proxy.py | grep -v grep 1>/dev/null 2>/dev/null; then
+            elif ps x | grep -w wsproxy.py | grep -v grep 1>/dev/null 2>/dev/null; then
 				clear
 				msgsocks=$(cat /etc/SSHPlus/proxy.py | grep -E "MSG =" | awk -F = '{print $2}' | cut -d "'" -f 2)
 				echo -e "\E[44;1;37m             PROXY SOCKS              \E[0m"
@@ -1596,7 +1597,8 @@ exit 0' >$RCLOCAL
 				echo -e "\033[1;32mREINICIANDO PROXY SOCKS!"
 				echo ""
 				fun_bar 'restartsocks'
-                fun_bar 'restartwssocks'
+				sleep 1
+				fun_bar 'restartwssocks'
 				echo ""
 				echo -e "\033[1;32mSTATUS ALTERADO COM SUCESSO!"
 				sleep 2
