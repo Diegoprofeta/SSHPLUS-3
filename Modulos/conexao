@@ -1554,6 +1554,12 @@ exit 0' >$RCLOCAL
 					sleep 1
 					cor_old=$(grep 'color=' /etc/SSHPlus/proxy.py | cut -d '"' -f2)
 					sed -i "s/\b$cor_old\b/$cor_sts/g" /etc/SSHPlus/proxy.py
+                    sleep 1
+                    msgwssocks2=$(cat /etc/SSHPlus/wsproxy.py | grep "MSG =" | awk -F = '{print $2}')
+					sed -i "s/$msgwssocks2/ '$msgg'/g" /etc/SSHPlus/wsproxy.py
+					sleep 1
+					cor_old=$(grep 'color=' /etc/SSHPlus/wsproxy.py | cut -d '"' -f2)
+					sed -i "s/\b$cor_old\b/$cor_sts/g" /etc/SSHPlus/wsproxy.py
 
 				}
 				echo ""
@@ -1572,11 +1578,26 @@ exit 0' >$RCLOCAL
 						screen -dmS proxy python /etc/SSHPlus/proxy.py $_Ptsks
 						rm /tmp/Pt_sks
 					fi
+                }
+                restartwssocks() {
+                    if ps x | grep wsproxy.py | grep -v grep 1>/dev/null 2>/dev/null; then
+						echo -e "$(netstat -nplt | grep 'python' | awk {'print $4'} | cut -d: -f2 | xargs)" >/tmp/Pt_wssks
+						for pidproxy in $(screen -ls | grep ".ws" | awk {'print $1'}); do
+							screen -r -S "$pidproxy" -X quit
+						done
+						screen -wipe >/dev/null
+						_Ptwssks="$(cat /tmp/Pt_wssks)"
+						sleep 1
+						screen -dmS ws python /etc/SSHPlus/wsproxy.py $_Ptwssks
+						rm /tmp/Pt_wssks
+					fi
 				}
 				echo ""
 				echo -e "\033[1;32mREINICIANDO PROXY SOCKS!"
 				echo ""
 				fun_bar 'restartsocks'
+				sleep 1
+				fun_bar 'restartwssocks'
 				echo ""
 				echo -e "\033[1;32mSTATUS ALTERADO COM SUCESSO!"
 				sleep 2
