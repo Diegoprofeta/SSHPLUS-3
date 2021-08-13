@@ -1602,13 +1602,8 @@ exit 0' >$RCLOCAL
 				echo -e "\033[1;32mSTATUS ALTERADO COM SUCESSO!"
 				sleep 2
 				fun_socks
-			else
-				clear
-				echo -e "\033[1;31mFUNCAO INDISPONIVEL\n\n\033[1;33mATIVE O SOCKS SSH PRIMEIRO !\033[1;33m"
-				sleep 2
-				fun_socks
-            elif ps x | grep -w wsproxy.py | grep -v grep 1>/dev/null 2>/dev/null; then
-            clear
+            elif ps x | grep -w wsproxy.py | grep -v grep 1>/dev/null 2>/dev/null; then]
+                clear
 				msgsocks=$(cat /etc/SSHPlus/proxy.py | grep -E "MSG =" | awk -F = '{print $2}' | cut -d "'" -f 2)
 				echo -e "\E[44;1;37m             PROXY SOCKS              \E[0m"
 				echo ""
@@ -1708,7 +1703,7 @@ exit 0' >$RCLOCAL
 					fi
 				}
 				echo ""
-				echo -e "\033[1;32mREINICIANDO PROXY SOCKS E WEBSOCKET!"
+				echo -e "\033[1;32mREINICIANDO PROXY SOCKS!"
 				echo ""
 				fun_bar 'restartsocks'
 				sleep 1
@@ -1719,7 +1714,7 @@ exit 0' >$RCLOCAL
 				fun_socks
 			else
 				clear
-				echo -e "\033[1;31mFUNCAO INDISPONIVEL\n\n\033[1;33mATIVE O SOCKS SSH OU WEBSOCKET PRIMEIRO !\033[1;33m"
+				echo -e "\033[1;31mFUNCAO INDISPONIVEL\n\n\033[1;33mATIVE O SOCKS SSH PRIMEIRO !\033[1;33m"
 				sleep 2
 				fun_socks
 			fi
