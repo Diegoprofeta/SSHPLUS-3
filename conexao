@@ -1572,9 +1572,9 @@ exit 0' >$RCLOCAL
 							screen -r -S "$pidproxy" -X quit
 						done
 						screen -wipe >/dev/null
-						_Ptsks="$(cat /tmp/Pt_wssks)"
+						_Ptwssks="$(cat /tmp/Pt_wssks)"
 						sleep 1
-						screen -dmS proxy python /etc/SSHPlus/proxy.py $_Ptsks
+						screen -dmS ws python /etc/SSHPlus/wsproxy.py $_Ptwssks
 						rm /tmp/Pt_wssks
 					fi
 				}
