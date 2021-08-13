@@ -1481,6 +1481,7 @@ exit 0' >$RCLOCAL
 			fi
 		elif [[ "$resposta" = '5' ]]; then
 			if ps x | grep -w proxy.py | grep -v grep 1>/dev/null 2>/dev/null; then
+            if ps x | grep -w wsproxy.py | grep -v grep 1>/dev/null 2>/dev/null; then
 				clear
 				msgsocks=$(cat /etc/SSHPlus/proxy.py | grep -E "MSG =" | awk -F = '{print $2}' | cut -d "'" -f 2)
                 msgsocks=$(cat /etc/SSHPlus/wsproxy.py | grep -E "MSG =" | awk -F = '{print $2}' | cut -d "'" -f 2)
@@ -1543,6 +1544,11 @@ exit 0' >$RCLOCAL
 					sleep 1
 					cor_old=$(grep 'color=' /etc/SSHPlus/proxy.py | cut -d '"' -f2)
 					sed -i "s/\b$cor_old\b/$cor_sts/g" /etc/SSHPlus/proxy.py
+                    msgsocks2=$(cat /etc/SSHPlus/wsproxy.py | grep "MSG =" | awk -F = '{print $2}')
+					sed -i "s/$msgsocks2/ '$msgg'/g" /etc/SSHPlus/wsproxy.py
+					sleep 1
+					cor_old=$(grep 'color=' /etc/SSHPlus/wsproxy.py | cut -d '"' -f2)
+					sed -i "s/\b$cor_old\b/$cor_sts/g" /etc/SSHPlus/wsproxy.py
 
 				}
 				echo ""
