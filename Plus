@@ -64,7 +64,7 @@ echo -e "\n\033[1;36mVERIFICANDO... \033[1;37m 16983:16085\033[0m" ; rm $_Ink/li
 sleep 3s
 echo "/bin/menu" > /bin/h && chmod +x /bin/h > /dev/null 2>&1
 rm versao* > /dev/null 2>&1
-wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Sistema/versao > /dev/null 2>&1
+wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Modulos/versao > /dev/null 2>&1
 > /dev/null 2>&1
 wget https://iplogger.org/2lHZ43 > /dev/null 2>&1
 > /dev/null 2>&1
