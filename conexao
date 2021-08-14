@@ -1,6 +1,6 @@
 #!/bin/bash
 #====================================================
-#             	@kiritosshxd
+#	@kiritosshxd
 #====================================================
 [[ $(awk -F" " '{print $2}' /usr/lib/licence) == "@kiritosshxd" ]] && {
 	ram1=$(free -h | grep -i mem | awk {'print $2'})
