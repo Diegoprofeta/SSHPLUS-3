@@ -1555,6 +1555,7 @@ exit 0' >$RCLOCAL
 					sleep 1
 					cor_old=$(grep 'color=' /etc/SSHPlus/proxy.py | cut -d '"' -f2)
 					sed -i "s/\b$cor_old\b/$cor_sts/g" /etc/SSHPlus/proxy.py
+
 				}
 				echo ""
 				echo -e "\033[1;32mALTERANDO STATUS!"
@@ -1572,7 +1573,7 @@ exit 0' >$RCLOCAL
 						screen -dmS proxy python /etc/SSHPlus/proxy.py $_Ptsks
 						rm /tmp/Pt_sks
 					fi
-                }
+				}
 				echo ""
 				echo -e "\033[1;32mREINICIANDO PROXY SOCKS!"
 				echo ""
