@@ -70,7 +70,7 @@ fun_atts () {
 
 } > /dev/null 2>&1
 
-echo -e "                              \033[1;31mBy Crazy\033[1;36m"
+echo -e "                              \033[1;31mBy kiritosshxd\033[1;36m"
 
 echo -e "   SSHPlus" | figlet
 
