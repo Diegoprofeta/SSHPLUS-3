@@ -1593,7 +1593,7 @@ exit 0' >$RCLOCAL
 					fi
 				}
 				echo ""
-				echo -e "\033[1;32mREINICIANDO PROXY SOCKS!"
+				echo -e "\033[1;32mREINICIANDO PROXY SOCKS E WEBSOCKET!"
 				echo ""
 				fun_bar 'restartsocks'
 				sleep 1
@@ -1703,7 +1703,7 @@ exit 0' >$RCLOCAL
 					fi
 				}
 				echo ""
-				echo -e "\033[1;32mREINICIANDO PROXY SOCKS!"
+				echo -e "\033[1;32mREINICIANDO PROXY SOCKS E WEBSOCKET!"
 				echo ""
 				fun_bar 'restartsocks'
 				sleep 1
@@ -1714,7 +1714,7 @@ exit 0' >$RCLOCAL
 				fun_socks
 			else
 				clear
-				echo -e "\033[1;31mFUNCAO INDISPONIVEL\n\n\033[1;33mATIVE O SOCKS SSH PRIMEIRO !\033[1;33m"
+				echo -e "\033[1;31mFUNCAO INDISPONIVEL\n\n\033[1;33mATIVE O SOCKS SSH OU WEBSOCKET PRIMEIRO !\033[1;33m"
 				sleep 2
 				fun_socks
 			fi
