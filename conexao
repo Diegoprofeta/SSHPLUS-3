@@ -1,10 +1,6 @@
 #!/bin/bash
 #====================================================
-#	SCRIPT: CONEXAO SSHPLUS MANAGER
-#	DESENVOLVIDO POR:	CRAZY_VPN
-#	DATA ATUALIZACAO:	16-03-2021 
-#	CONTATO TELEGRAM:	http://t.me/crazy_vpn
-#	CANAL TELEGRAM:	http://t.me/sshplus
+#	@kiritosshxd
 #====================================================
 cor1='\033[41;1;37m'
 cor2='\033[44;1;37m'
@@ -542,10 +538,10 @@ scor='\033[0m'
                 echo -e "\n\033[1;32mCONFIGURANDO CHESEL !\033[0m"
 				echo ""
                 fun_inichesel() {
-                    docker run \ >/dev/null 2>&1
-                      --name chisel -p $porta:$porta \ >/dev/null 2>&1
-                      -d --restart always \ >/dev/null 2>&1
-                      jpillora/chisel server -p $porta --socks5 --key supersecret --auth "$username:$password" >/dev/null 2>&1
+                    docker run \
+                      --name chisel -p $porta:$porta \
+                      -d --restart always \
+                      jpillora/chisel server -p $porta --socks5 --key supersecret --auth "$username:$password"
                 }
                 fun_bar 'fun_inichesel'
                 echo -e "\n\033[1;32mCHESEL INSTALADO COM SUCESSO !\033[1;31m PORTA: \033[1;33m$porta\033[0m"
@@ -554,14 +550,14 @@ scor='\033[0m'
 				fun_chesel
             fi
         elif [[ "$resposta" = '2' ]]; then
-            echo -e "\n\033[1;32mREINICIANDO CHESEL !\033[1;31m PORTA: \033[1;33m$porta\033[0m"
+            echo -e "\n\033[1;32mREINICIANDO CHESEL !\033[1;33m"
 				sleep 3
             fun_attchisel() {
                 docker restart chisel
             }
             fun_attchisel
             clear
-            echo -e "\n\033[1;32mCHESEL REINICIANDO COM SUCESSO !\033[1;31m PORTA: \033[1;33m$porta\033[0m"
+            echo -e "\n\033[1;32mCHESEL REINICIANDO COM SUCESSO !\033[1;33m"
             sleep 1
             fun_chesel
         elif [[ "$resposta" = '0' ]]; then
