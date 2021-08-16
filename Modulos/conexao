@@ -477,6 +477,8 @@ scor='\033[0m'
 				fun_chiseloff() {
 					docker stop chisel
                     docker rm chisel
+					docker.io stop chisel
+                    docker.io rm chisel
 
 				}
 				echo -e "\033[1;32mDESATIVANDO CHISEL\033[1;33m"
@@ -488,9 +490,13 @@ scor='\033[0m'
 				fun_chisel
 			else
                 clear
+                fun_installdocker() {
+                    apt-get install docker -y && apt-get install docker.io
+                }
+                echo -e "\n\033[1;32mSuportado Ubuntu 16+\033[1;33m"
                 echo -e "\n\033[1;32mINSTALANDO O CHISEL !\033[1;33m"
 				echo ""
-				fun_bar 'apt-get update -y' 'apt-get install docker -y'                
+				fun_bar 'fun_installdocker'
 				clear
 				echo -e "\E[44;1;37m             CHISEL              \E[0m"
 				echo ""
@@ -541,6 +547,7 @@ scor='\033[0m'
 				echo ""
                 fun_inichisel() {
                     docker run --name chisel -p $porta:$porta -d --restart always jpillora/chisel server -p $porta --socks5 --key supersecret --auth "$username:$password"
+                    docker.io run --name chisel -p $porta:$porta -d --restart always jpillora/chisel server -p $porta --socks5 --key supersecret --auth "$username:$password"
                 }
                 fun_bar 'fun_inichisel'
                 clear
@@ -555,6 +562,7 @@ scor='\033[0m'
 			echo ""
             fun_attchisel() {
                 docker restart chisel
+                docker.io restart chisel
             }
             fun_attchisel
             clear
