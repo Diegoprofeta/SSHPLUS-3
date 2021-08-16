@@ -527,7 +527,6 @@ scor='\033[0m'
                     echo -e "${cor1}use no máximo 10 caracteres!${scor}\n"
                     fun_chisel
                 }
-                clear
                 echo -ne "\033[1;32mSenha:\033[1;37m ";read password
                 [[ -z $password ]] && {
                     echo -e "\n${cor1}Senha vazia ou invalida!${scor}\n"
