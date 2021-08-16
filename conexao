@@ -540,12 +540,12 @@ scor='\033[0m'
 				echo ""
                 fun_inichesel() {
                     docker run \
-                    echo -e  --name chisel -p $porta:$porta \
-                    echo -e  -d --restart always \
-                    echo -e  jpillora/chisel server -p $porta --socks5 --key supersecret --auth "$username:$password"
+                      --name chisel -p ${porta}:${porta} \
+                      -d --restart always \
+                      jpillora/chisel server -p ${porta} --socks5 --key supersecret --auth "${username}:${password}"
                 }
                 fun_bar 'fun_inichesel'
-                echo -e "\n\033[1;32mCHESEL INSTALADO COM SUCESSO !\033[1;31m PORTA: \033[1;33m$porta\033[0m"
+                echo -e "\n\033[1;32mCHESEL INSTALADO COM SUCESSO !\033[1;31m PORTA: \033[1;33m${porta}\033[0m"
 				sleep 3
 				clear
 				fun_chesel
