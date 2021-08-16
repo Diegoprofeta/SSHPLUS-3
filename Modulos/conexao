@@ -5,6 +5,9 @@
 cor1='\033[41;1;37m'
 cor2='\033[44;1;37m'
 scor='\033[0m'
+GREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+SCOLOR='\033[0m'
 [[ $(awk -F" " '{print $2}' /usr/lib/licence) == "@CRAZY_VPN" ]] && {
 	ram1=$(free -h | grep -i mem | awk {'print $2'})
 	ram2=$(free -h | grep -i mem | awk {'print $4'})
@@ -491,7 +494,18 @@ scor='\033[0m'
 			else
                 clear
                 fun_installdocker() {
-                    apt-get install docker -y && apt-get install docker.io
+                    _pacotes=("docker" "docker.io")
+                    for _prog in ${_pacotes[@]}; do
+                    apt install $_prog -y
+                    done
+                }
+                echo -e "\n${YELLOW}ESTEJA CIENTE QUE ESSE METODO É INSTAVEL\nPODE OU NÃO FUNCIONAR NA SUA MAQUINA\nFIQUE CIENTE DOS RISCOS ! ${SCOLOR}\n"
+                echo -ne "${GREEN}DESEJA CONTINUAR A INSTALACAO ? ${YELLOW}[s/n]:${SCOLOR} "
+                read resp
+                [[ "$resp" != @(s|sim|S|SIM) ]] && {
+                    echo -e "\n${RED}Retornando...${SCOLOR}"
+                    sleep 2
+                    conexao
                 }
                 echo -e "\n\033[1;32mSuportado Ubuntu 16+\033[1;33m"
                 echo -e "\n\033[1;32mINSTALANDO O CHISEL !\033[1;33m"
