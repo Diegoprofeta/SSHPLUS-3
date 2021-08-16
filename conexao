@@ -504,6 +504,7 @@ scor='\033[0m'
 					fun_chisel
 				}
 				verif_ptrs $porta
+                clear
                 echo -ne "\033[1;32mNome do usuário:\033[1;37m ";read username
                 [[ -z $username ]] && {
                     echo -e "\n${cor1}Nome de usuário vazio ou invalido!${scor}\n"
@@ -526,6 +527,7 @@ scor='\033[0m'
                     echo -e "${cor1}use no máximo 10 caracteres!${scor}\n"
                     fun_chisel
                 }
+                clear
                 echo -ne "\033[1;32mSenha:\033[1;37m ";read password
                 [[ -z $password ]] && {
                     echo -e "\n${cor1}Senha vazia ou invalida!${scor}\n"
@@ -542,6 +544,7 @@ scor='\033[0m'
                     docker run --name chisel -p $porta:$porta -d --restart always jpillora/chisel server -p $porta --socks5 --key supersecret --auth "$username:$password"
                 }
                 fun_bar 'fun_inichisel'
+                clear
                 echo -e "\n\033[1;32mCHISEL INSTALADO COM SUCESSO !\033[1;31m PORTA: \033[1;33m${porta}\033[0m"
 				sleep 3
 				clear
