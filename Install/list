@@ -1,10 +1,6 @@
 #!/bin/bash
 #====================================================
-#	SCRIPT: CONEXAO SSHPLUS MANAGER
-#   DATA ATT:   28 de Set 2020
-#	DESENVOLVIDO POR:	CRAZY_VPN
-#	CONTATO TELEGRAM:	http://t.me/crazy_vpn
-#	CANAL TELEGRAM:	http://t.me/sshplus
+#	@kiritosshxd
 #====================================================
 _lvk=$(wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Sistema/versao)
 IP=$(wget -qO- ipv4.icanhazip.com)
