@@ -466,7 +466,21 @@ SCOLOR='\033[0m'
 		clear
 		echo -e "\E[44;1;37m            GERENCIAR CHISEL             \E[0m"
 		echo ""
-		echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mATIVAR CHISEL\033[0m"
+
+
+		[[ "$(netstat -tlpn | grep 'docker' | wc -l)" != '0' ]] && {
+			sks='\033[1;32mON'
+			echo -e "\033[1;33mPORTAS\033[1;37m: \033[1;32m$(netstat -nplt | grep 'docker' | awk {'print $4'} | cut -d: -f2 | xargs)"
+		} || {
+			sks='\033[1;31mOFF'
+		}
+        [[ "$(netstat -tlpn | grep 'docker' | wc -l)" != '0' ]] && {
+				chiselsts="\033[1;32m◉ "
+			} || {
+				chiselsts="\033[1;31m○ "
+			}
+		echo ""
+		echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mATIVAR CHISEL $chiselsts \033[0m"
 		echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mREINICIAR CHISEL\033[0m"
 		echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m• \033[1;33mVOLTAR\033[0m"
 		echo ""
