@@ -1,4 +1,5 @@
 #!/bin/bash
+echo -e "\033[1;33m                 INSTALANDO SSL... "
 inst_ssl () {
 
 apt-get install stunnel4 -y
@@ -15,6 +16,6 @@ rm -rf /root/stunnel.crt
 rm -rf /root/stunnel.key
 
 }
-sleep 1
+fun_bar 'inst_ssl'
 echo -e "\033[1;33m                 CONFIGURANDO SSL.. "
 fun_bar 'inst_ssl'
