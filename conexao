@@ -700,7 +700,8 @@ SCOLOR='\033[0m'
 			[[ "$resposta" = 's' ]] && {
 				echo -e "\n\033[1;33mDEFINA UMA PORTA PARA O SSL TUNNEL !\033[0m"
 				echo ""
-				read -p "$(echo -e "\033[1;32mQUAL PORTA DESEJA UTILIZAR? \033[1;37m")" -e -i 3128 porta
+				echo -ne "\033[1;32mQUAL PORTA DESEJA ULTILIZAR \033[1;33m?\033[1;37m "
+                read porta
 				[[ -z "$porta" ]] && {
 					echo ""
 					echo -e "\033[1;31mPorta invalida!"
