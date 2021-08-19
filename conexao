@@ -681,16 +681,20 @@ SCOLOR='\033[0m'
 			echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;37m "
 			read resposta
 			echo ""
-            [[ "$resposta" = '1' ]] && {
+            if [[ "$resposta" = '1' ]]; then
                 portssl='22'
-            }
-            [[ "$resposta" = '2' ]] && {
+            elif [[ "$resposta" = '2' ]]; then     
                 portssl='80'
-			} || {
+            elif [[ "$resposta" = '0' ]]; then
 				echo -e "\033[1;31mRetornando...\033[0m"
 				sleep 3
 				fun_conexao
-			}
+            else
+			echo ""
+			echo -e "\033[1;31mOpcao invalida !\033[0m"
+			sleep 1
+			inst_ssl
+		fi
             clear
 			echo -e "\E[44;1;37m           INSTALADOR SSL TUNNEL             \E[0m"
 			echo -e "\n\033[1;33mVC ESTA PRESTES A INSTALAR O SSL TUNNEL !\033[0m"
