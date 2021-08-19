@@ -686,7 +686,11 @@ SCOLOR='\033[0m'
             }
             [[ "$resposta" = '2' ]] && {
                 portssl='80'
-            }
+			} || {
+				echo -e "\033[1;31mRetornando...\033[0m"
+				sleep 3
+				fun_conexao
+			}
             clear
 			echo -e "\E[44;1;37m           INSTALADOR SSL TUNNEL             \E[0m"
 			echo -e "\n\033[1;33mVC ESTA PRESTES A INSTALAR O SSL TUNNEL !\033[0m"
