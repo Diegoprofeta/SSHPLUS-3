@@ -682,7 +682,7 @@ SCOLOR='\033[0m'
 			read resposta
 			echo ""
             [[ "$resposta" = '1' ]] && {
-                portssl='20'
+                portssl='22'
             }
             [[ "$resposta" = '2' ]] && {
                 portssl='80'
