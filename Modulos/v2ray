@@ -235,6 +235,7 @@ installFinish() {
     if [[ ${INSTALL_WAY} == 0 ]]; then
         clear
 
+        echo -e "\n\033[1;32mV2RAY INSTALADO COM SUCESSO !\033[0m"
         v2ray info
 
         echo -e "Por favor insira o comando 'v2ray' para gerenciar v2ray\n"
