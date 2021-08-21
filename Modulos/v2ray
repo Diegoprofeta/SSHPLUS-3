@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Jrohy
+# EDIT: @kiritossh
 # github: https://github.com/Jrohy/multi-v2ray
 
 #定时任务北京执行时间(0~23)
@@ -237,7 +237,7 @@ installFinish() {
 
         v2ray info
 
-        echo -e "please input 'v2ray' command to manage v2ray\n"
+        echo -e "Por favor insira o comando 'v2ray' para gerenciar v2ray\n"
     fi
 }
 
