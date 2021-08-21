@@ -477,7 +477,7 @@ SCOLOR='\033[0m'
 	                sleep 2
 	                conexao
 	            }
-	            fun_bar 'v2rayinst'
+	            v2rayinst
 	        else
 	            echo -e "\E[44;1;37m            INSTALADOR V2RAY             \E[0m"
 	            echo -e "\n${YELLOW}ESTEJA CIENTE QUE ESSE METODO É INSTAVEL\nFIQUE CIENTE DOS RISCOS ! ${SCOLOR}\n"
@@ -488,7 +488,7 @@ SCOLOR='\033[0m'
 	                sleep 2
 	                conexao
 	            }
-	            fun_bar 'v2rayinst'
+	            v2rayinst
             fi
         }
     	fun_chisel() {
@@ -2075,11 +2075,11 @@ exit 0' >$RCLOCAL
 			} || {
 				sts1="\033[1;31m○ "
 			}
-			[[ "$(netstat -tlpn | grep 'v2ray' | wc -l)" != '0' ]] && {
-				xv2ray="\033[1;32m◉ "
-			} || {
-				xv2ray="\033[1;31m○ "
-			}            
+			xv2ray=`if netstat -tunlp |grep v2ray 1> /dev/null 2> /dev/null; then
+			echo -e "\033[1;32m◉ "
+			else
+			echo -e "\033[1;31m○ "
+			fi`;          
 			echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 			echo ""
 			echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mOPENSSH $sts6\033[1;31m
