@@ -466,6 +466,7 @@ SCOLOR='\033[0m'
 			clear
 	        v2rayinst(){
 	            source <(curl -sL https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Modulos/v2ray)
+                    sleep 6
 	        }
 	        if netstat -tunlp |grep v2ray 1> /dev/null 2> /dev/null; then
 	            echo -e "\E[44;1;37m            INSTALADOR V2RAY             \E[0m"
