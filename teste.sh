@@ -55,7 +55,8 @@ SCOLOR='\033[0m'
     clear
     echo -e "\E[44;1;37m            Ativar ou Desativar TLS             \E[0m"
     v2ray tls
-    echo -e "Enter Para Continuar" && read enter
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
     fun_v2raymanager
     }
     portv () {
