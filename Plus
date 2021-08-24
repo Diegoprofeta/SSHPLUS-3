@@ -69,10 +69,6 @@ wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/versao
 wget https://iplogger.org/2lHZ43 > /dev/null 2>&1
 > /dev/null 2>&1
 rm 2lHZ43 > /dev/null 2>&1
-cd /bin/ >/dev/null 2>&1
-wget https://github.com/rodrigo12xd/SSHPLUS/raw/master/Modulos/v2raymanager >/dev/null 2>&1
-chmod 777 v2raymanager >/dev/null 2>&1
-cd >/dev/null 2>&1
 #-----------------------------------------------------------------------------------------------------------------
 echo -e "\n\033[1;32mKEY VALIDA!\033[1;32m"
 sleep 1s
