@@ -33,7 +33,7 @@ SCOLOR='\033[0m'
     intallv2ray () {
     apt install python3-pip -y 
     source <(curl -sL https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Modulos/v2ray)
-    msg -ama "$(fun_trans "Intalado con Exito")!"
+    echo -e "\033[1;37m\033[1;33mIntalado com Exito!\033[1;31m"
     USRdatabase="/etc/SSHPlus/RegV2ray"
     [[ ! -e ${USRdatabase} ]] && touch ${USRdatabase}
     sort ${USRdatabase} | uniq > ${USRdatabase}tmp
