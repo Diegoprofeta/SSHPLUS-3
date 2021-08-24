@@ -32,15 +32,15 @@ SCOLOR='\033[0m'
 
     intallv2ray () {
     apt install python3-pip -y 
-    source <(curl -sL https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Modulos/v2ray.sh)
+    source <(curl -sL https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Modulos/v2ray)
     msg -ama "$(fun_trans "Intalado con Exito")!"
     USRdatabase="/etc/SSHPlus/RegV2ray"
     [[ ! -e ${USRdatabase} ]] && touch ${USRdatabase}
     sort ${USRdatabase} | uniq > ${USRdatabase}tmp
     mv -f ${USRdatabase}tmp ${USRdatabase}
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     protocolv2ray () {
     msg -ama "$(fun_trans "Escolha a opção 3 e coloque o domínio do nosso IP")!"
@@ -456,7 +456,7 @@ SCOLOR='\033[0m'
 			fi`;          
 			echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 			echo ""
-			echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mINSTALAR V2RAY $sts9\033[1;31m
+			echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mINSTALAR V2RAY $xv2ray\033[1;31m
 [\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mALTERAR PROTOCOLO\033[1;31m
 [\033[1;36m03\033[1;31m] \033[1;37m• \033[1;33mATIVAR TLS\033[1;31m
 [\033[1;36m04\033[1;31m] \033[1;37m• \033[1;33mALTERAR PORTA V2RAY\033[1;31m
