@@ -448,7 +448,7 @@ SCOLOR='\033[0m'
 		while true $x != "ok"; do
 			[[ ! -e '/home/sshplus' ]] && exit 0
 			clear
-			echo -e "\E[44;1;37m                MODO DE CONEXAO                 \E[0m\n"
+			echo -e "\E[44;1;37m                GERENCIADOR V2RAY                 \E[0m\n"
 			echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: \033[1;37m$(grep 'Port' /etc/ssh/sshd_config | cut -d' ' -f2 | grep -v 'no' | xargs)" && sts6="\033[1;32m◉ "
 			[[ "$(netstat -tlpn | grep 'docker' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mCHISEL: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'docker' | awk {'print $4'} | cut -d: -f2 | xargs)"
@@ -529,21 +529,6 @@ SCOLOR='\033[0m'
 			read x
 			tput cnorm
 			clear
-
-1)intallv2ray;;
-2)protocolv2ray;;
-3)tls;;
-4)portv;;
-5)addusr;;
-6)delusr;;
-7)mosusr_kk;;
-8)infocuenta;;
-9)stats;;
-10)lim_port;;
-11)limpiador_activador;;
-12)unistallv2;;
-0)exit;;
-
 			case $x in
 			1 | 01)
 				intallv2ray
