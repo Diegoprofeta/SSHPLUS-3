@@ -42,15 +42,18 @@ SCOLOR='\033[0m'
     echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
     fun_v2raymanager
     }
+
     protocolv2ray () {
-    msg -ama "$(fun_trans "Escolha a opção 3 e coloque o domínio do nosso IP")!"
-    msg -bar
+    echo -e "\E[44;1;37m            ALTERAR PROTOCOLO V2RAY             \E[0m"
+    echo -e "\033[1;37m• \033[1;33mEscolha a opção 3 e coloque o domínio do seu IP\033[1;31m"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     v2ray stream
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     dirapache="/usr/local/lib/ubuntn/apache/ver" && [[ ! -d ${dirapache} ]] && exit
+
     tls () {
     clear
     echo -e "\E[44;1;37m            Ativar ou Desativar TLS             \E[0m"
@@ -60,42 +63,37 @@ SCOLOR='\033[0m'
     fun_v2raymanager
     }
     portv () {
-    msg -ama "$(fun_trans "Alterar porta v2ray")!"
-    msg -bar
+    echo -e "\E[44;1;37m            ALTERAR PORTA V2RAY             \E[0m"
     v2ray port
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     stats () {
-    msg -ama "$(fun_trans "Estatísticas de Consumo")!"
-    msg -bar
+    echo -e "\E[44;1;37m            ESTATÍSTICAS DE CONSUMO             \E[0m"
     v2ray stats
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     unistallv2 () {
-    source <(curl -sL https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Modulos/v2ray.sh) --remove > /dev/null 2>&1
+    source <(curl -sL https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Modulos/v2ray) --remove > /dev/null 2>&1
     rm -rf /etc/SSHPlus/RegV2ray > /dev/null 2>&1
     echo -e "\n\033[1;32mV2RAY REMOVIDO COM SUCESSO !\033[0m"
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     infocuenta () {
+    echo -e "\E[44;1;37m            INFORMAÇÃO DE CONTA             \E[0m"
     v2ray info
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     addusr () {
-    clear 
     clear
-    msg -bar
-    msg -tit
-    msg -ama "             ADICIONAR USUARIO | UUID V2RAY"
-    msg -bar
+    echo -e "\E[44;1;37m            ADICIONAR USUARIO | UUID V2RAY             \E[0m"
     ##DIAS
     valid=$(date '+%C%y-%m-%d' -d " +31 days")		  
     ##CORREO		  
@@ -149,29 +147,28 @@ SCOLOR='\033[0m'
     let suma=$lineP+$numl1
     sed -n ${suma}p /etc/SSHPlus/v2ray/confuuid.log 
     echo ""
-    msg -bar
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo -e "\e[92m           UUID ADICIONADO COM EXITO "
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
 
     delusr () {
     clear 
     clear
     invaliduuid () {
-    msg -bar
-    echo -e "\e[91m                    UUID INVALIDO \n$(msg -bar)"
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\e[91m                    UUID INVALIDO \n"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
-    msg -bar
-    msg -tit
-    msg -ama "             ELIMINAR USUARIO | UUID V2RAY"
-    msg -bar
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\E[44;1;37m            ELIMINAR USUARIO | UUID V2RAY             \E[0m"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo -e "\e[97m               USUARIOS REGISTRADOS"
     echo -e "\e[33m$(cat /etc/SSHPlus/RegV2ray|cut -d '|' -f2,1)" 
-    msg -bar
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo -ne "\e[91m >> Digita UUID para eliminar:\n \033[1;92m " && read uuidel
     [[ $(sed -n '/'${uuidel}'/=' /etc/v2ray/config.json|head -1) ]] || invaliduuid
     lineP=$(sed -n '/'${uuidel}'/=' /etc/v2ray/config.json)
@@ -185,9 +182,9 @@ SCOLOR='\033[0m'
     sed -i "${resta}d" /etc/v2ray/config.json
     sed -i "${resta}d" /etc/v2ray/config.json
     v2ray restart > /dev/null 2>&1
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
 
     mosusr_kk() {
