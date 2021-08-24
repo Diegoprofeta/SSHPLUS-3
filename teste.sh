@@ -129,9 +129,9 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
          if [[ -z $nick ]]; then
          echo -e "$msg17" && continue
          elif [[ "${#nick}" -lt "2" ]]; then
-         echo -e "$msg2" && continue
+         echo -e "$msg02" && continue
          elif [[ "${#nick}" -gt "5" ]]; then
-         echo -e "$msg3" && continue
+         echo -e "$msg03" && continue
          fi
          break
     done
@@ -141,9 +141,9 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
          if [[ -z "$diasuser" ]]; then
          echo -e "$msg17" && continue
          elif [[ "$diasuser" != +([0-9]) ]]; then
-         echo -e "$msg8" && continue
+         echo -e "$msg08" && continue
          elif [[ "$diasuser" -gt "360" ]]; then
-         echo -e "$msg9" && continue
+         echo -e "$msg09" && continue
          fi 
          break
     done
@@ -206,10 +206,9 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     mosusr_kk() {
     clear 
     clear
-    msg -bar
-    msg -tit
-    msg -ama "         USUARIOS REGISTRADOS | UUID V2RAY"
-    msg -bar
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\E[44;1;37m            USUARIOS REGISTRADOS | UUID V2RAY             \E[0m"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     # usersss=$(cat /etc/SSHPlus/RegV2ray|cut -d '|' -f1)
     # cat /etc/SSHPlus/RegV2ray|cut -d'|' -f3
     VPSsec=$(date +%s)
@@ -218,13 +217,13 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     local RETURN="$(cat $HOST|cut -d'|' -f2)"
     local IDEUUID="$(cat $HOST|cut -d'|' -f1)"
     if [[ -z $RETURN ]]; then
-    echo -e "----- NINGUN USER REGISTRADO -----"
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "----- NENHUM USUARIO REGISTRADO -----"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     else
     i=1
     echo -e "\e[97m                 UUID                | USER | EXPIRACION \e[93m"
-    msg -bar
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     while read hostreturn ; do
     DateExp="$(cat /etc/SSHPlus/RegV2ray|grep -w "$hostreturn"|cut -d'|' -f3)"
     if [[ ! -z $DateExp ]]; then             
@@ -247,17 +246,16 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     	      echo -e "$contador_secuencial \n Numero de Registrados: $linesss"
     	}
     fi
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     lim_port () {
     clear 
     clear
-    msg -bar
-    msg -tit
-    msg -ama "          LIMITAR MB X PORT | UUID V2RAY"
-    msg -bar
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\E[44;1;37m            LIMITAR MB X PORT | UUID V2RAY             \E[0m"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     ###VER
     estarts () {
     VPSsec=$(date +%s)
@@ -266,9 +264,9 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     local RETURN="$(cat $HOST|cut -d'|' -f2)"
     local IDEUUID="$(cat $HOST|cut -d'|' -f1)"
     if [[ -z $RETURN ]]; then
-    echo -e "----- NINGUN PUERTO REGISTRADO -----"
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "----- NENHUMA PORTA REGISTRADA -----"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     else
     i=1
     while read hostreturn ; do
@@ -288,31 +286,31 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     	      echo -e "$contador_secuencial \n Puertos Limitados: $linesss"
     	}
     fi
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh 
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager 
     }
     ###LIM
     liport () {
     while true; do
          echo -ne "\e[91m >> Digite Port a Limitar:\033[1;92m " && read portbg
          if [[ -z "$portbg" ]]; then
-         err_fun 17 && continue
+         echo -e "$msg17" && continue
          elif [[ "$portbg" != +([0-9]) ]]; then
-         err_fun 16 && continue
+         echo -e "$msg16" && continue
          elif [[ "$portbg" -gt "1000" ]]; then
-         err_fun 16 && continue
+         echo -e "$msg16" && continue
          fi 
          break
     done
     while true; do
          echo -ne "\e[91m >> Digite Cantidad de GB:\033[1;92m " && read capgb
          if [[ -z "$capgb" ]]; then
-         err_fun 17 && continue
+         echo -e "$msg17" && continue
          elif [[ "$capgb" != +([0-9]) ]]; then
-         err_fun 15 && continue
+         echo -e "$msg15" && continue
          elif [[ "$capgb" -gt "1000" ]]; then
-         err_fun 15 && continue
+         echo -e "$msg15" && continue
          fi 
          break
     done
@@ -323,12 +321,12 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     sudo iptables -I OUTPUT -p tcp --sport $portbg -m quota --quota $multiplicacion -j ACCEPT
     iptables-save > /etc/iptables/rules.v4
     echo ""
-    echo -e " Port Seleccionado: $portbg | Cantidad de GB: $gbuser"
+    echo -e " Porta Selecionada: $portbg | Quantidade de GB: $gbuser"
     echo ""
     echo " $portbg | $gbuser | $multiplicacion " >> /etc/SSHPlus/v2ray/lisportt.log 
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     ###RES
     resdata () {
@@ -338,7 +336,7 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     local RETURN="$(cat $HOST|cut -d'|' -f2)"
     local IDEUUID="$(cat $HOST|cut -d'|' -f1)"
     if [[ -z $RETURN ]]; then
-    echo -e "----- NINGUN PUERTO REGISTRADO -----"
+    echo -e "----- NENHUMA PORTA REGISTRADA -----"
     return 0
     else
     i=1
@@ -361,24 +359,25 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     	      echo -e "$contador_secuencial \n Puertos Limitados: $linesss"
     	}
     fi
-    msg -bar
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
     while true; do
          echo -ne "\e[91m >> Digite Puerto a Limpiar:\033[1;92m " && read portbg
          if [[ -z "$portbg" ]]; then
-         err_fun 17 && continue
+         echo -e "$msg17" && continue
          elif [[ "$portbg" != +([0-9]) ]]; then
-         err_fun 16 && continue
+         echo -e "$msg16" && continue
          elif [[ "$portbg" -gt "1000" ]]; then
-         err_fun 16 && continue
+         echo -e "$msg16" && continue
          fi 
          break
     done
     invaliduuid () {
-    msg -bar
-    echo -e "\e[91m                PUERTO INVALIDO \n$(msg -bar)"
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\e[91m                PORTA INVALIDA \n"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     [[ $(sed -n '/'${portbg}'/=' /etc/SSHPlus/v2ray/lisportt.log|head -1) ]] || invaliduuid
     gblim=$(cat /etc/SSHPlus/v2ray/lisportt.log|grep -w "$portbg"|cut -d'|' -f3)
@@ -387,23 +386,24 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     iptables-save > /etc/iptables/rules.v4
     lineP=$(sed -n '/'${portbg}'/=' /etc/SSHPlus/v2ray/lisportt.log)
     sed -i "${linePre}d" /etc/SSHPlus/v2ray/lisportt.log
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh 
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
     }
     ## MENU
     echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "LIMITAR DATA x PORT") "
-    echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "RESETEAR DATA DE PORT") "
+    echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "RESETEAR DADOS DE PORTA") "
     echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "VER DATOS CONSUMIDOS") "
-    echo -ne "$(msg -bar)\n\033[1;32m [0] > " && msg -bra "\e[97m\033[1;41m VOLVER \033[1;37m"
-    msg -bar
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -ne "\n\033[1;32m [0] > " && msg -bra "\e[97m\033[1;41m VOLTAR \033[1;37m"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     selection=$(selection_fun 3)
     case ${selection} in
     1)liport ;;
     2)resdata;;
     3)estarts;;
     0)
-    ${SCPinst}/v2ray.sh
+    fun_v2raymanager
     ;;
     esac
     }
@@ -424,16 +424,15 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     statgen="$(echo $PID_GEN)"
     clear 
     clear
-    msg -bar
-    msg -tit
-    msg -ama "          ELIMINAR EXPIRADOS | UUID V2RAY"
-    msg -bar
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\E[44;1;37m            ELIMINAR EXPIRADOS | UUID V2RAY             \E[0m"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo ""
     echo -e "                    $statgen " 
     echo "" 						
-    msg -bar
-    msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
+    fun_v2raymanager
 
     }
 
@@ -453,15 +452,20 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     [[ ! $PID_GEN ]] && PID_GEN="\e[91m [ DESATIVADO ] " || PID_GEN="\e[92m [ ATIVADO ] "
     statgen="$(echo $PID_GEN)"
     SPR & 
-    msg -bar3
-    msg -bar
-    msg -tit
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
     fun_v2raymanager() {
 		while true $x != "ok"; do
 			[[ ! -e '/home/sshplus' ]] && exit 0
 			clear
 			echo -e "\E[44;1;37m                GERENCIADOR V2RAY                 \E[0m\n"
+
+			xv2ray1=`if netstat -tunlp |grep v2ray 1> /dev/null 2> /dev/null; then
+			echo -e "\e[92m ATIVADO"
+			else
+			echo -e "\e[91m DESATIVADO"
+			fi`;
+            echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: $xv2ray1\033[1;37m" 
 			xv2ray=`if netstat -tunlp |grep v2ray 1> /dev/null 2> /dev/null; then
 			echo -e "\033[1;32m◉ "
 			else
