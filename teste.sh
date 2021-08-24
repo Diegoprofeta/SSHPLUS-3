@@ -52,12 +52,13 @@ SCOLOR='\033[0m'
     }
     dirapache="/usr/local/lib/ubuntn/apache/ver" && [[ ! -d ${dirapache} ]] && exit
     tls () {
-    msg -ama "$(fun_trans "Ativar o Desativar TLS")!"
+    clear
+    echo -e "\E[44;1;37m            Ativar ou Desativar TLS             \E[0m"
     msg -bar
     v2ray tls
-    msg -bar
+    echo ""
     msg -ne "Enter Para Continuar" && read enter
-    ${SCPinst}/v2ray.sh
+    fun_v2raymanager
     }
     portv () {
     msg -ama "$(fun_trans "Alterar porta v2ray")!"
