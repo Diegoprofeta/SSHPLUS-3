@@ -391,11 +391,11 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     fun_v2raymanager
     }
     ## MENU
-    echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "LIMITAR DATA x PORT") "
-    echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "RESETEAR DADOS DE PORTA") "
-    echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "VER DATOS CONSUMIDOS") "
+    echo -ne "\033[1;32m [1] > LIMITAR DATA x PORT"
+    echo -ne "\033[1;32m [2] > RESETAR DADOS DE PORTA"
+    echo -ne "\033[1;32m [3] > VER DATOS CONSUMIDOS"
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -ne "\n\033[1;32m [0] > " && msg -bra "\e[97m\033[1;41m VOLTAR \033[1;37m"
+    echo -ne "\n\033[1;32m [0] > \e[97m\033[1;41m VOLTAR \033[1;37m"
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     selection=$(selection_fun 3)
     case ${selection} in
@@ -441,7 +441,7 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     local range
     for((i=0; i<=$1; i++)); do range[$i]="$i "; done
     while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-    echo -ne "\033[1;37m$(fun_trans " ► Selecione una Opcion"): " >&2
+    echo -ne "\033[1;37m ► Selecione uma Opção"): " >&2
     read selection
     tput cuu1 >&2 && tput dl1 >&2
     done
