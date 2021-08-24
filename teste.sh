@@ -8,6 +8,22 @@ scor='\033[0m'
 GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 SCOLOR='\033[0m'
+msg01='\033[1;37m\033[1;33mUsuário Nulo\033[1;31m'
+msg02='\033[1;37m\033[1;33mNome muito curto (MIN: 2 CHARACTERS)\033[1;31m'
+msg03='\033[1;37m\033[1;33mNome muito grande (MAX: 5 CARACTERES)\033[1;31m'
+msg04='\033[1;37m\033[1;33mSenha Nula\033[1;31m'
+msg05='\033[1;37m\033[1;33mSenha muito curta\033[1;31m'
+msg06='\033[1;37m\033[1;33mSenha muito grande\033[1;31m'
+msg07='\033[1;37m\033[1;33mDuração Nula\033[1;31m'
+msg08='\033[1;37m\033[1;33mDuração invalida, utilize números\033[1;31m'
+msg09='\033[1;37m\033[1;33mDuração máxima de um ano\033[1;31m'
+msg11='\033[1;37m\033[1;33mLimite Nulo\033[1;31m'
+msg12='\033[1;37m\033[1;33mLimite invalido, utilize números\033[1;31m'
+msg13='\033[1;37m\033[1;33mLimite máximo de 999\033[1;31m'
+msg14='\033[1;37m\033[1;33mUsuario já Existe\033[1;31m'
+msg15='\033[1;37m\033[1;33m(Apenas números) GB = Min: 1gb Max: 1000gb\033[1;31m'
+msg16='\033[1;37m\033[1;33m(Apenas números)\033[1;31m'
+msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\033[1;31m'
 [[ $(awk -F" " '{print $2}' /usr/lib/licence) == "@KIRITO_SSH" ]] && {
     err_fun () {
         case $1 in
@@ -111,11 +127,11 @@ SCOLOR='\033[0m'
          read -p ": " nick
          nick="$(echo $nick|sed -e 's/[^a-z0-9 -]//ig')"
          if [[ -z $nick ]]; then
-         err_fun 17 && continue
+         echo -e "$msg17" && continue
          elif [[ "${#nick}" -lt "2" ]]; then
-         err_fun 2 && continue
+         echo -e "$msg2" && continue
          elif [[ "${#nick}" -gt "5" ]]; then
-         err_fun 3 && continue
+         echo -e "$msg3" && continue
          fi
          break
     done
@@ -123,11 +139,11 @@ SCOLOR='\033[0m'
     while true; do
          echo -ne "\e[91m >> Duração de UUID (Dias):\033[1;92m " && read diasuser
          if [[ -z "$diasuser" ]]; then
-         err_fun 17 && continue
+         echo -e "$msg17" && continue
          elif [[ "$diasuser" != +([0-9]) ]]; then
-         err_fun 8 && continue
+         echo -e "$msg8" && continue
          elif [[ "$diasuser" -gt "360" ]]; then
-         err_fun 9 && continue
+         echo -e "$msg9" && continue
          fi 
          break
     done
