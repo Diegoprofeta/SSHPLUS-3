@@ -2135,7 +2135,7 @@ exit 0' >$RCLOCAL
 				v2raymanager
 				exit;
 				;;                
-			11 | 10)
+			11 | 11)
 				menu
 				;;
 			0 | 00)
