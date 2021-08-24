@@ -198,6 +198,9 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     sed -i "${resta}d" /etc/v2ray/config.json
     sed -i "${resta}d" /etc/v2ray/config.json
     v2ray restart > /dev/null 2>&1
+    echo ""
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\e[92m           UUID ELIMINADO COM EXITO "
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo -e "\033[1;37m• \033[1;33mEnter Para Continuar\033[1;31m" && read enter
     fun_v2raymanager
@@ -391,11 +394,11 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     fun_v2raymanager
     }
     ## MENU
-    echo -ne "\033[1;32m [1] > LIMITAR DATA x PORT"
-    echo -ne "\033[1;32m [2] > RESETAR DADOS DE PORTA"
-    echo -ne "\033[1;32m [3] > VER DATOS CONSUMIDOS"
+    echo -e "\033[1;37m\033[1;33m[1] > LIMITAR DADOS x PORTA\033[1;31m"
+    echo -e "\033[1;37m\033[1;33m[2] > RESETAR DADOS DE PORTA\033[1;31m"
+    echo -e "\033[1;37m\033[1;33m[3] > VER DATOS CONSUMIDOS\033[1;31m"
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -ne "\n\033[1;32m [0] > \e[97m\033[1;41m VOLTAR \033[1;37m"
+    echo -e "\033[1;32m [0] > \e[97m\033[1;41m VOLTAR \033[1;37m"
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     selection=$(selection_fun 3)
     case ${selection} in
@@ -420,7 +423,7 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
     fi
     unset PID_GEN
     PID_GEN=$(ps x|grep -v grep|grep "limv2ray")
-    [[ ! $PID_GEN ]] && PID_GEN="\e[91m [ DESACTIVADO ] " || PID_GEN="\e[92m [ ACTIVADO ] "
+    [[ ! $PID_GEN ]] && PID_GEN="\e[91m [ DESATIVADO ] " || PID_GEN="\e[92m [ ATIVADO ] "
     statgen="$(echo $PID_GEN)"
     clear 
     clear
@@ -465,7 +468,7 @@ msg17='\033[1;37m\033[1;33m(Sem imformação - Para Cancelar Digite CRTL + C)\03
 			else
 			echo -e "\e[91m DESATIVADO"
 			fi`;
-            echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: $xv2ray1\033[1;37m" 
+            echo -e "\033[1;32mSERVICO: \033[1;33mV2RAY \033[1;32m$xv2ray1\033[1;37m" 
 			xv2ray=`if netstat -tunlp |grep v2ray 1> /dev/null 2> /dev/null; then
 			echo -e "\033[1;32m◉ "
 			else
