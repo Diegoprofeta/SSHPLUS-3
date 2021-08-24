@@ -517,7 +517,8 @@ SCOLOR='\033[0m'
 				unistallv2
 				;;
             13 | 13)
-				fun_conexao
+				conexao
+                exit;
 				;;
 
 			0 | 00)
