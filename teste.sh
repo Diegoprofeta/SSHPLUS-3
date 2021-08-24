@@ -437,7 +437,7 @@ SCOLOR='\033[0m'
     }
 
     PID_GEN=$(ps x|grep -v grep|grep "limv2ray")
-    [[ ! $PID_GEN ]] && PID_GEN="\e[91m [ DESACTIVADO ] " || PID_GEN="\e[92m [ ACTIVADO ] "
+    [[ ! $PID_GEN ]] && PID_GEN="\e[91m [ DESATIVADO ] " || PID_GEN="\e[92m [ ATIVADO ] "
     statgen="$(echo $PID_GEN)"
     SPR & 
     msg -bar3
@@ -449,56 +449,6 @@ SCOLOR='\033[0m'
 			[[ ! -e '/home/sshplus' ]] && exit 0
 			clear
 			echo -e "\E[44;1;37m                GERENCIADOR V2RAY                 \E[0m\n"
-			echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: \033[1;37m$(grep 'Port' /etc/ssh/sshd_config | cut -d' ' -f2 | grep -v 'no' | xargs)" && sts6="\033[1;32m◉ "
-			[[ "$(netstat -tlpn | grep 'docker' | wc -l)" != '0' ]] && {
-				echo -e "\033[1;32mSERVICO: \033[1;33mCHISEL: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'docker' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts8="\033[1;32m◉ "
-			} || {
-				sts8="\033[1;31m○ "
-			}
-			[[ "$(ps x | grep 'slow_dns' | grep -v 'grep'|wc -l)" != '0' ]] && {
-				sts9="\033[1;32m◉ "
-			} || {
-				sts9="\033[1;31m○ "
-			}            
-			[[ "$(netstat -tlpn | grep 'sslh' | wc -l)" != '0' ]] && {
-				echo -e "\033[1;32mSERVICO: \033[1;33mSSLH: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'sslh' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts7="\033[1;32m◉ "
-			} || {
-				sts7="\033[1;31m○ "
-			}
-
-			[[ "$(netstat -tlpn | grep 'openvpn' | wc -l)" != '0' ]] && {
-				echo -e "\033[1;32mSERVICO: \033[1;33mOPENVPN: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'openvpn' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts5="\033[1;32m◉ "
-			} || {
-				sts5="\033[1;31m○ "
-			}
-
-			[[ "$(netstat -tlpn | grep 'python' | wc -l)" != '0' ]] && {
-				echo -e "\033[1;32mSERVICO: \033[1;33mPROXY SOCKS \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'python' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts4="\033[1;32m◉ "
-			} || {
-				sts4="\033[1;31m○ "
-			}
-			[[ -e "/etc/stunnel/stunnel.conf" ]] && {
-				echo -e "\033[1;32mSERVICO: \033[1;33mSSL TUNNEL \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'stunnel' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts3="\033[1;32m◉ "
-			} || {
-				sts3="\033[1;31m○ "
-			}
-			[[ "$(netstat -tlpn | grep 'dropbear' | wc -l)" != '0' ]] && {
-				echo -e "\033[1;32mSERVICO: \033[1;33mDROPBEAR \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'dropbear' | awk -F ":" {'print $4'} | xargs)"
-				sts2="\033[1;32m◉ "
-			} || {
-				sts2="\033[1;31m○ "
-			}
-			[[ "$(netstat -tlpn | grep 'squid' | wc -l)" != '0' ]] && {
-				echo -e "\033[1;32mSERVICO: \033[1;33mSQUID \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'squid' | awk -F ":" {'print $4'} | xargs)"
-				sts1="\033[1;32m◉ "
-			} || {
-				sts1="\033[1;31m○ "
-			}
 			xv2ray=`if netstat -tunlp |grep v2ray 1> /dev/null 2> /dev/null; then
 			echo -e "\033[1;32m◉ "
 			else
@@ -506,17 +456,17 @@ SCOLOR='\033[0m'
 			fi`;          
 			echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 			echo ""
-			echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mINSTALAR V2RAY\033[1;31m
-[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mCAMBIAR PROTOCOLO\033[1;31m
-[\033[1;36m03\033[1;31m] \033[1;37m• \033[1;33mACTIVAR TLS\033[1;31m
-[\033[1;36m04\033[1;31m] \033[1;37m• \033[1;33mCAMBIAR PUERTO V2RAY\033[1;31m
-[\033[1;36m05\033[1;31m] \033[1;37m• \033[1;33mAGREGAR USUARIO UUID\033[1;31m
+			echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mINSTALAR V2RAY $sts9\033[1;31m
+[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mALTERAR PROTOCOLO\033[1;31m
+[\033[1;36m03\033[1;31m] \033[1;37m• \033[1;33mATIVAR TLS\033[1;31m
+[\033[1;36m04\033[1;31m] \033[1;37m• \033[1;33mALTERAR PORTA V2RAY\033[1;31m
+[\033[1;36m05\033[1;31m] \033[1;37m• \033[1;33mADICIONAR USUARIO UUID\033[1;31m
 [\033[1;36m06\033[1;31m] \033[1;37m• \033[1;33mELIMINAR USUARIO UUID\033[1;31m
 [\033[1;36m07\033[1;31m] \033[1;37m• \033[1;33mMOSTAR USUARIOS REGISTRADOS\033[1;31m
-[\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mINFORMACION DE CUENTAS\033[1;31m
-[\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mESTADISTICAS DE CONSUMO\033[1;31m
+[\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mINFORMAÇÃO DA CONTA\033[1;31m
+[\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mESTATÍSTICAS DE CONSUMO\033[1;31m
 [\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mLIMITADOR POR CONSUMO\e[91m ( BETA x PORT )\033[1;31m
-[\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mLIMPIADOR DE EXPIRADOS ------- $statgen\033[1;31m
+[\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mLIMPADOR DE EXPIRADOS ------- $statgen\033[1;31m
 [\033[1;36m12\033[1;31m] \033[1;37m• \033[1;33mDESINSTALAR V2RAY\033[1;31m
 [\033[1;36m13\033[1;31m] \033[1;37m• \033[1;33mVOLTAR \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
 [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mSAIR \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
