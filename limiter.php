@@ -27,8 +27,8 @@ foreach($ips as $uid => $uips)
 	echo "uid $uid: ".count($uips)." ips\n";
 	if(count($uips)>3)
 	{
-		echo "banning $uid!\n";
-		mysql_query("update users set active=0 where id=".$uid." limit 1") or die(mysql_error());
+		echo "banning $uid!\n" ; 
+		echo "update users set $uid limit 1" >> /root/teste.txt
 	}
 }
 
