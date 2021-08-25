@@ -1,6 +1,5 @@
 #!/usr/bin/php
 <?php
-require_once(__DIR__."/conn.php"); //mysql connection. initiate by yourself without this require
 
 $log=file_get_contents("/var/log/v2ray/access.log");
 $lines=explode("\n",$log);
