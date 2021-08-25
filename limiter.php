@@ -28,7 +28,7 @@ foreach($ips as $uid => $uips)
 	if(count($uips)>3)
 	{
 		echo "banning $uid!\n" ; 
-		echo "update users set $uid limit 1" >> /root/teste.txt
+		echo "update users set $uid limit 1" >> /root/teste.txt;
 	}
 }
 
