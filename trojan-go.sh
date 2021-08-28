@@ -1135,7 +1135,7 @@ menu() {
     echo -e "\n${Green}     Versão do script de implantação TSP e Trojan-Go / V2Ray: ${shell_version} ${Font}"
     echo -e "——————————————————————Gerenciamento de implantação——————————————————————"
     if [[ $tsp_stat = "installed" ]]; then
-        echo -e "${Green}1.${Font}  ${Yellow}Desinstalar${Font} TLS-Shunt-Proxy（Certificado de gerenciamento de site e automático）"
+        echo -e "${Green}1.${Font}  ${Yellow}Desinstalar${Font} TLS-Shunt-Proxy"
     else
         echo -e "${Green}1.${Font}  Instalar TLS-Shunt-Proxy（Certificado de gerenciamento de site e automático）"
     fi
@@ -1143,13 +1143,13 @@ menu() {
         if [[ $trojan_stat = "none" ]]; then
             echo -e "${Green}2.${Font}  Instalar proxy TCP / WS Trojan-Go"
         else
-            echo -e "${Green}2.${Font}  ${Yellow}Desinstalar${Font} Trojan-Go TCP/WS 代理"
+            echo -e "${Green}2.${Font}  ${Yellow}Desinstalar${Font} Proxy Trojan-Go TCP / WS"
         fi
     systemctl is-active "tls-shunt-proxy" &>/dev/null &&
         if [[ $v2ray_stat = "none" ]]; then
             echo -e "${Green}3.${Font} Instalar proxy TCP / WS V2Ray"
         else
-            echo -e "${Green}3.${Font}  ${Yellow}Desinstalar${Font} V2Ray TCP/WS 代理"
+            echo -e "${Green}3.${Font}  ${Yellow}Desinstalar${Font} Proxy TCP / WS V2Ray"
         fi
     systemctl is-active "docker" &>/dev/null &&
         if [[ $watchtower_stat = "none" ]]; then
@@ -1172,7 +1172,7 @@ menu() {
     systemctl is-active "tls-shunt-proxy" &>/dev/null &&
         echo -e "——————————————————————Ver informação——————————————————————" &&
         echo -e "${Green}9.${Font}  Ver informações de configuração" &&
-        [[ $trojan_stat = "installed" || $v2ray_stat = "installed" ]] && echo -e "${Green}10.${Font} 查看 分享/订阅 链接"
+        [[ $trojan_stat = "installed" || $v2ray_stat = "installed" ]] && echo -e "${Green}10.${Font} Ver link compartilhar / assinar"
     echo -e "——————————————————————Gestão Diversa——————————————————————"
     [ -f ${tsp_conf} ] && echo -e "${Green}11.${Font} Atualizar plataforma base TLS-Shunt-Proxy / Docker" &&
         echo -e "${Green}12.${Font} ${Yellow}Desinstalar${Font} Todos os componentes instalados"
