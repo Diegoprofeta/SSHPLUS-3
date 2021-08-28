@@ -2077,7 +2077,7 @@ exit 0' >$RCLOCAL
 				sts1="\033[1;31m○ "
 			}
 			[[ "$(netstat -tunlp | grep 'trojan-go' | wc -l)" != '0' ]] && {
-				echo -e "\033[1;32mSERVICO: \033[1;33mSSLH: \033[1;32mPORTA: \033[1;37m$(netstat -tunlp | grep 'trojan-go' | awk {'print $4'} | cut -d: -f2 | xargs)"
+				echo -e "\033[1;32mSERVICO: \033[1;33mTROJAN-GO: \033[1;32mPORTA: \033[1;37m$(netstat -tunlp | grep 'trojan-go' | awk {'print $4'} | cut -d: -f2 | xargs)"
 				sts7="\033[1;32m◉ "
 			} || {
 				sts7="\033[1;31m○ "
