@@ -2083,7 +2083,7 @@ exit 0' >$RCLOCAL
 				trojansts="\033[1;31m○ "
 			}
 			[[ "$(netstat -tunlp | grep 'v2ray' | wc -l)" != '0' ]] && {
-				echo -e "\033[1;32mSERVICO: \033[1;33mV2RAY: \033[1;32mPORTA: \033[1;37m$(netstat -tunlp | grep 'v2ray' | awk {'print $4'} | cut -d: -f2 | xargs)"
+				echo -e "\033[1;32mSERVICO: \033[1;33mV2RAY: \033[1;32mPORTA: \033[1;37m$(netstat -tunlp | grep 'v2ray' | awk {'print $4'} | xargs)"
 				xv2ray="\033[1;32m◉ "
 			} || {
 				xv2ray="\033[1;31m○ "
