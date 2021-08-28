@@ -1040,18 +1040,18 @@ info_links() {
     if [[ -f ${trojan_conf} && $trojan_stat = "installed" ]]; then
         echo -e "———————————————— Link de compartilhamento do Trojan-Go ————————————————" &&
             [[ $trojan_tcp_mode = true ]] && echo -e "\n Link de compartilhamento TLS do Trojan-Go TCP:" &&
-            echo -e " Cliente Trojan：\n trojan://${tjpassword}@${TSP_Domain}:${TSP_Port}?sni=${TSP_Domain}&allowinsecure=0&mux=0#${HOSTNAME}-TCP" &&
+            echo -e " ${Yellow}Cliente Trojan：\n trojan://${tjpassword}@${TSP_Domain}:${TSP_Port}?sni=${TSP_Domain}&allowinsecure=0&mux=0#${HOSTNAME}-TCP" &&
             echo ""
-	    echo -e " Cliente Qv2ray (plug-in trojan-go necessário) ：\n trojan-go://${tjpassword}@${TSP_Domain}:${TSP_Port}/?sni=${TSP_Domain}&type=original&host=${TSP_Domain}#${HOSTNAME}-TCP" &&
+	    echo -e " ${Yellow}Cliente Qv2ray (plug-in trojan-go necessário) ：\n trojan-go://${tjpassword}@${TSP_Domain}:${TSP_Port}/?sni=${TSP_Domain}&type=original&host=${TSP_Domain}#${HOSTNAME}-TCP" &&
             echo ""
-	    echo -e " Código QR Shadowrocket：" &&
+	    echo -e " ${Yellow}Código QR Shadowrocket：" &&
             qrencode -t ANSIUTF8 -s 1 -m 2 "trojan://${tjpassword}@${TSP_Domain}:${TSP_Port}?sni=${TSP_Domain}&peer=${TSP_Domain}&allowinsecure=0&mux=0#${HOSTNAME}-TCP"
         [[ $trojan_ws_mode = true ]] && echo -e "\n Link de compartilhamento Trojan-Go WebSocket TLS：" &&
-            echo -e " Cliente Trojan-Qt5：\n trojan://${tjpassword}@${TSP_Domain}:${TSP_Port}?sni=${TSP_Domain}&peer=${TSP_Domain}&allowinsecure=0&mux=1&ws=1&wspath=${tjwspath}&wshost=${TSP_Domain}#${HOSTNAME}-WS" &&
+            echo -e " ${Yellow}Cliente Trojan-Qt5：\n trojan://${tjpassword}@${TSP_Domain}:${TSP_Port}?sni=${TSP_Domain}&peer=${TSP_Domain}&allowinsecure=0&mux=1&ws=1&wspath=${tjwspath}&wshost=${TSP_Domain}#${HOSTNAME}-WS" &&
             echo ""
-	    echo -e " Cliente Qv2ray (plug-in trojan-go necessário) ：\n trojan-go://${tjpassword}@${TSP_Domain}:${TSP_Port}/?sni=${TSP_Domain}&type=ws&host=${TSP_Domain}&path=${tjwspath}#${HOSTNAME}-WS" &&
+	    echo -e " ${Yellow}Cliente Qv2ray (plug-in trojan-go necessário) ：\n trojan-go://${tjpassword}@${TSP_Domain}:${TSP_Port}/?sni=${TSP_Domain}&type=ws&host=${TSP_Domain}&path=${tjwspath}#${HOSTNAME}-WS" &&
             echo ""
-	    echo -e " Código QR Shadowrocket：" &&
+	    echo -e " ${Yellow}Código QR Shadowrocket：" &&
             qrencode -t ANSIUTF8 -s 1 -m 2 "trojan://${tjpassword}@${TSP_Domain}:${TSP_Port}?peer=${TSP_Domain}&mux=1&plugin=obfs-local;obfs=websocket;obfs-host=${TSP_Domain};obfs-uri=${tjwspath}#${HOSTNAME}-WS"
         read -t 60 -n 1 -s -rp "Pressione qualquer tecla para continuar（60s）..."
     fi
