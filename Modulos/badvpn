@@ -50,7 +50,7 @@ fun_udp1 () {
         echo -e "\033[1;32mINSTALANDO O BADVPN !\033[0m\n"
 	    inst_udp () {
 	        cd $HOME
-            wget https://www.dropbox.com/s/cg4eifi3276br2o/badvpn-udpgw -o /dev/null
+            wget https://www.dropbox.com/s/48b36clnxkkurlz/badvpn-udpgw -o /dev/null
             mv -f $HOME/badvpn-udpgw /bin/badvpn-udpgw
             chmod 777 /bin/badvpn-udpgw
 	   }
