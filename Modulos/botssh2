@@ -34,8 +34,8 @@ fun_bar() {
 fun_botOnOff() {
     [[ $(ps x | grep "bot_teste" | grep -v grep | wc -l) = '0' ]] && {
         clear
-        rm botteste /etc/SSHPlus/bot/ > /dev/null 2>&1
-        wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Modulos/botteste /etc/SSHPlus/bot/ > /dev/null 2>&1
+        rm botteste /etc/SSHPlus/bott/ > /dev/null 2>&1
+        wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Modulos/botteste /etc/SSHPlus/bott/ > /dev/null 2>&1
         clear
         echo -e "\E[44;1;37m             INSTALADOR BOT TESTE                \E[0m\n"
         echo -ne "\033[1;32mINFORME SEU TOKEN:\033[1;37m "
@@ -60,24 +60,24 @@ fun_botOnOff() {
         echo -e "\033[1;32mINICIANDO BOT TESTE \033[0m\n"
         fun_bot1() {
         	[[ "$(grep -wc '16' /etc/issue.net)" != '0' ]] && {
-        		wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh > /etc/SSHPlus/bot/ShellBot.sh
+        		wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh > /etc/SSHPlus/bott/ShellBot.sh
         	}
-            [[ ! -e "/etc/SSHPlus/bot/ShellBot.sh" ]] && {
-				wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh >/etc/SSHPlus/bot/ShellBot.sh
+            [[ ! -e "/etc/SSHPlus/bott/ShellBot.sh" ]] && {
+				wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh >/etc/SSHPlus/bott/ShellBot.sh
 			}
-            cd /etc/SSHPlus/bot
-            sed -i 's/!user/$user/' /etc/SSHPlus/bot/botteste > /dev/null 2>&1
-            sed -i 's/!botaossh/$botaossh/' /etc/SSHPlus/bot/botteste > /dev/null 2>&1
-            sed -i 's/!botao2/$botao2/' /etc/SSHPlus/bot/botteste > /dev/null 2>&1
-            sed -i 's/!linkb2/$linkb2/' /etc/SSHPlus/bot/botteste > /dev/null 2>&1
-            sed -i 's/!botao2/$botao2/' /etc/SSHPlus/bot/botteste > /dev/null 2>&1
-            sed -i 's/!linkb3/$linkb3/' /etc/SSHPlus/bot/botteste > /dev/null 2>&1
+            cd /etc/SSHPlus/bott
+            sed -i 's/!user/$user/' /etc/SSHPlus/bott/botteste > /dev/null 2>&1
+            sed -i 's/!botaossh/$botaossh/' /etc/SSHPlus/bott/botteste > /dev/null 2>&1
+            sed -i 's/!botao2/$botao2/' /etc/SSHPlus/bott/botteste > /dev/null 2>&1
+            sed -i 's/!linkb2/$linkb2/' /etc/SSHPlus/bott/botteste > /dev/null 2>&1
+            sed -i 's/!botao2/$botao2/' /etc/SSHPlus/bott/botteste > /dev/null 2>&1
+            sed -i 's/!linkb3/$linkb3/' /etc/SSHPlus/bott/botteste > /dev/null 2>&1
             screen -dmS bot_teste ./botteste $token >/dev/null 2>&1
             [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
-                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /etc/SSHPlus/bot && sudo screen -dmS bot_teste ./botteste $token && cd $HOME" >>/etc/autostart
+                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /etc/SSHPlus/bott && sudo screen -dmS bot_teste ./botteste $token && cd $HOME" >>/etc/autostart
             } || {
                 sed -i '/bot_teste/d' /etc/autostart
-                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /etc/SSHPlus/bot && sudo screen -dmS bot_teste ./botteste $token && cd $HOME" >>/etc/autostart
+                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /etc/SSHPlus/bott && sudo screen -dmS bot_teste ./botteste $token && cd $HOME" >>/etc/autostart
             }
             [[ $(crontab -l | grep -c "verifbot") = '0' ]] && (
                 crontab -l 2>/dev/null
@@ -124,5 +124,5 @@ fun_instbot() {
         menu
     }
 }
-[[ -f "/etc/SSHPlus/bot/ShellBot.sh" ]] && fun_botOnOff || fun_instbot
+[[ -f "/etc/SSHPlus/bott/ShellBot.sh" ]] && fun_botOnOff || fun_instbot
 #fim
