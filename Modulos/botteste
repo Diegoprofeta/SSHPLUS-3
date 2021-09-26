@@ -34,6 +34,9 @@
     [[ ! -e "/etc/SSHPlus/ShellBot.sh" ]] && {
         wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh >/etc/SSHPlus/ShellBot.sh
     }
+    [[ ! -e "/etc/SSHPlus/botssh" ]] && {
+        wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/botssh >/etc/SSHPlus/botssh.sh
+    }
     cd /etc/SSHPlus
     screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal > /dev/null 2>&1
     [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
