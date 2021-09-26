@@ -1,0 +1,50 @@
+#!/bin/bash
+[[ $(screen -list| grep -c 'bot_teste') == '0' ]] && {
+    clear
+    echo -e "\E[44;1;37m     ATIVACÃO BOT SSH TESTE     \E[0m"
+    echo ""
+    echo -ne "\033[1;32mINFORME O TOKEN\033[1;37m: "; read token
+    echo ""
+    clear
+    echo -ne "\033[1;32mMENSAGEM DE BOAS VINDAS:\033[1;37m: "; read msg
+    echo ""
+    echo -ne "\033[1;32mINFORME SEU USER (EX:@kiritossh):\033[1;37m: "; read msgfinal
+    echo ""
+    clear
+    echo -ne "\033[1;32mNOME DO BOTÃO 1 (Gerador SSH):\033[1;37m: "; read btn1
+    echo ""
+    clear
+    echo -ne "\033[1;32mNOME DO BOTÃO 2(Personalizado):\033[1;37m: "; read btn2
+    echo ""
+    echo -ne "\033[1;32mLINK DO BOTÃO 2:\033[1;37m: "; read linkbtn2
+    echo ""
+    clear
+    echo -ne "\033[1;32mNOME DO BOTÃO 3:(Personalizado)\033[1;37m: "; read btn3
+    echo ""
+    echo -ne "\033[1;32mLINK DO BOTÃO 3:\033[1;37m: "; read linkbtn3
+    echo ""
+    clear
+    echo -ne "\033[1;32mDURAÇÃO DO TESTE(EM HORAS):\033[1;37m: "; read tempo
+    clear
+    echo -e "\033[1;32mINICIANDO BOT TESTE \033[0m\n"
+    echo ""
+    [[ "$(grep -wc '16' /etc/issue.net)" != '0' ]] && {
+        wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh > /etc/SSHPlus/ShellBot.sh
+    }
+    [[ ! -e "/etc/SSHPlus/ShellBot.sh" ]] && {
+        wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh >/etc/SSHPlus/ShellBot.sh
+    }
+    cd /etc/SSHPlus
+    screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal > /dev/null 2>&1
+    [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
+                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /root/BOT && sudo screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal && cd $HOME" >>/etc/autostart
+            } || {
+                sed -i '/bot_teste/d' /etc/autostart
+                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /root/BOT && sudo screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal && cd $HOME" >>/etc/autostart
+            }    
+    clear && echo "BOT ATIVADO"
+    cd
+} || {
+    screen -r -S "bot_teste" -X quit
+    clear && echo "BOT DESATIVADO"
+}
