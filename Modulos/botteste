@@ -70,12 +70,12 @@ fun_botOnOff() {
             chmod 777 $HOME/BOT/botssh
             chmod 777 $HOME/BOT/ShellBot.sh
             cd $HOME/BOT
-            screen -dmS bot_teste ./botssh $token >/dev/null 2>&1
+            screen -dmS bot_teste ./botssh $token $boas_vindas $msg_final $nome_user $nome_bt1 $nome_bt2 $link_bt2 $nome_bt3 $link_bt3 $tempo_teste >/dev/null 2>&1
             [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
                 echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd $HOME/BOT && sudo screen -dmS bot_teste ./botssh $token $boas_vindas $msg_final $nome_user $nome_bt1 $nome_bt2 $link_bt2 $nome_bt3 $link_bt3 $tempo_teste && cd $HOME" >>/etc/autostart
             } || {
                 sed -i '/bot_teste/d' /etc/autostart
-                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd $HOME/BOT/ && sudo screen -dmS bot_teste ./bot $token $boas_vindas $msg_final $nome_user $nome_bt1 $nome_bt2 $link_bt2 $nome_bt3 $link_bt3 $tempo_teste && cd $HOME" >>/etc/autostart
+                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd $HOME/BOT/ && sudo screen -dmS bot_teste ./botssh $token $boas_vindas $msg_final $nome_user $nome_bt1 $nome_bt2 $link_bt2 $nome_bt3 $link_bt3 $tempo_teste && cd $HOME" >>/etc/autostart
             }
         }
         fun_bar 'fun_bot1'
