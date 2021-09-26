@@ -1,4 +1,17 @@
 #!/bin/bash
+clear
+echo -e "\E[44;1;37m     INSTALACAO BOT SSH TESTE     \E[0m"
+echo -e "\nINSTALANDO AGUARDE...."
+mkdir $HOME/BOT
+[[ ! -e "$HOME/BOT/ShellBot.sh" ]] && {
+        wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh >$HOME/BOT/ShellBot.sh
+    }
+[[ ! -e "$HOME/BOT/botssh" ]] && {
+    wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/botssh >$HOME/BOT/botssh
+    }
+chmod 777 $HOME/BOT/botssh
+chmod 777 $HOME/BOT/ShellBot.sh
+clear
 [[ $(screen -list| grep -c 'bot_teste') == '0' ]] && {
     clear
     echo -e "\E[44;1;37m     ATIVACÃO BOT SSH TESTE     \E[0m"
@@ -28,16 +41,7 @@
     clear
     echo -e "\033[1;32mINICIANDO BOT TESTE \033[0m\n"
     echo ""
-    [[ "$(grep -wc '16' /etc/issue.net)" != '0' ]] && {
-        wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh > /etc/SSHPlus/ShellBot.sh
-    }
-    [[ ! -e "/etc/SSHPlus/ShellBot.sh" ]] && {
-        wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh >/etc/SSHPlus/ShellBot.sh
-    }
-    [[ ! -e "/etc/SSHPlus/botssh" ]] && {
-        wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/botssh >/etc/SSHPlus/botssh
-    }
-    cd /etc/SSHPlus
+    cd $HOME/BOT
     screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal > /dev/null 2>&1
     [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
                 echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /root/BOT && sudo screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal && cd $HOME" >>/etc/autostart
@@ -46,7 +50,6 @@
                 echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /root/BOT && sudo screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal && cd $HOME" >>/etc/autostart
             }    
     clear && echo "BOT ATIVADO"
-    cd
 } || {
     screen -r -S "bot_teste" -X quit
     clear && echo "BOT DESATIVADO"
