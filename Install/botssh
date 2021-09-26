@@ -1,5 +1,6 @@
 #!/bin/bash
 clear
+#--------[ DESENVOLVIDO POR @CRAZY_VPN ]-----------#
 source ShellBot.sh
 touch lista
 [[ -z $api_bot ]] && {
