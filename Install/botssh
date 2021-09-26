@@ -2,35 +2,35 @@
 clear
 source ShellBot.sh
 touch lista
-[[ -z $1 ]] && {
-    clear && echo "INFORME O TOKEN" && return 0
+[[ -z $api_bot ]] && {
+    clear && echo "OK" && return 0
 }
-[[ -z $2 ]] && {
-    clear && echo "MENSAGEM DE BOAS VINDAS" && return 0
+[[ -z $boas_vindas ]] && {
+    clear && echo "OK" && return 0
 }
-[[ -z $3 ]] && {
-    clear && echo "MENSAGEM FINAL" && return 0
+[[ -z $msg_final ]] && {
+    clear && echo "OK" && return 0
 }
-[[ -z $4 ]] && {
-    clear && echo "INFORME SEU USER (EX:@kiritossh)" && return 0
+[[ -z $nome_user ]] && {
+    clear && echo "OK" && return 0
 }
-[[ -z $5 ]] && {
-    clear && echo "NOME DO BOTÃO 1 (Gerador SSH)" && return 0
+[[ -z $nome_bt1 ]] && {
+    clear && echo "OK" && return 0
 }
-[[ -z $6 ]] && {
-    clear && echo "NOME DO BOTÃO 2(Personalizado)" && return 0
+[[ -z $nome_bt2 ]] && {
+    clear && echo "OK" && return 0
 }
-[[ -z $7 ]] && {
-    clear && echo "LINK DO BOTÃO 2" && return 0
+[[ -z $link_bt2 ]] && {
+    clear && echo "OK" && return 0
 }
-[[ -z $8 ]] && {
-    clear && echo "NOME DO BOTÃO 3(Personalizado)" && return 0
+[[ -z $nome_bt3 ]] && {
+    clear && echo "OK" && return 0
 }
-[[ -z $9 ]] && {
-    clear && echo "LINK DO BOTÃO 3" && return 0
+[[ -z $link_bt3 ]] && {
+    clear && echo "OK" && return 0
 }
-[[ -z $10 ]] && {
-    clear && echo "DURAÇÃO DO TESTE(EM HORAS)" && return 0
+[[ -z $tempo_teste ]] && {
+    clear && echo "OK" && return 0
 }
 # Informações Server 2
 ip_server2="SEU-IP-AQUI"
