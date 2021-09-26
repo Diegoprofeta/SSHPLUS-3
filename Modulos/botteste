@@ -45,6 +45,8 @@ fun_botOnOff() {
             [[ ! -e "$HOME/BOT/botssh" ]] && {
                 wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/botssh >$HOME/BOT/botssh
             }
+            chmod 777 $HOME/BOT/botssh
+            chmod 777 $HOME/BOT/ShellBot.sh
             cd $HOME/BOT
             screen -dmS bot_teste ./botssh $token >/dev/null 2>&1
             [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
