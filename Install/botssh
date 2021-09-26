@@ -29,7 +29,7 @@ touch lista
 [[ -z $9 ]] && {
     clear && echo "LINK DO BOTÃO 3" && return 0
 }
-[[ -z $9 ]] && {
+[[ -z $10 ]] && {
     clear && echo "DURAÇÃO DO TESTE(EM HORAS)" && return 0
 }
 # Informações Server 2
