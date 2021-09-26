@@ -1,56 +1,96 @@
 #!/bin/bash
 clear
-echo -e "\E[44;1;37m     INSTALACAO BOT SSH TESTE     \E[0m"
-echo -e "\nINSTALANDO AGUARDE...."
-mkdir $HOME/BOT
-[[ ! -e "$HOME/BOT/ShellBot.sh" ]] && {
-        wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh >$HOME/BOT/ShellBot.sh
-    }
-[[ ! -e "$HOME/BOT/botssh" ]] && {
-    wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/botssh >$HOME/BOT/botssh
-    }
-chmod 777 $HOME/BOT/botssh
-chmod 777 $HOME/BOT/ShellBot.sh
-clear
-[[ $(screen -list| grep -c 'bot_teste') == '0' ]] && {
-    clear
-    echo -e "\E[44;1;37m     ATIVACÃO BOT SSH TESTE     \E[0m"
-    echo ""
-    echo -ne "\033[1;32mINFORME O TOKEN\033[1;37m: "; read token
-    echo ""
-    clear
-    echo -ne "\033[1;32mMENSAGEM DE BOAS VINDAS:\033[1;37m: "; read msg
-    echo ""
-    echo -ne "\033[1;32mINFORME SEU USER (EX:@kiritossh):\033[1;37m: "; read msgfinal
-    echo ""
-    clear
-    echo -ne "\033[1;32mNOME DO BOTÃO 1 (Gerador SSH):\033[1;37m: "; read btn1
-    echo ""
-    clear
-    echo -ne "\033[1;32mNOME DO BOTÃO 2(Personalizado):\033[1;37m: "; read btn2
-    echo ""
-    echo -ne "\033[1;32mLINK DO BOTÃO 2:\033[1;37m: "; read linkbtn2
-    echo ""
-    clear
-    echo -ne "\033[1;32mNOME DO BOTÃO 3:(Personalizado)\033[1;37m: "; read btn3
-    echo ""
-    echo -ne "\033[1;32mLINK DO BOTÃO 3:\033[1;37m: "; read linkbtn3
-    echo ""
-    clear
-    echo -ne "\033[1;32mDURAÇÃO DO TESTE(EM HORAS):\033[1;37m: "; read tempo
-    clear
-    echo -e "\033[1;32mINICIANDO BOT TESTE \033[0m\n"
-    echo ""
-    cd $HOME/BOT
-    screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal > /dev/null 2>&1
-    [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
-                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /root/BOT && sudo screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal && cd $HOME" >>/etc/autostart
+[[ $(awk -F" " '{print $2}' /usr/lib/licence) != "@KIRITO_SSH" ]] && exit 0
+fun_bar() {
+    comando[0]="$1"
+    comando[1]="$2"
+    (
+        [[ -e $HOME/fim ]] && rm $HOME/fim
+        ${comando[0]} -y >/dev/null 2>&1
+        ${comando[1]} -y >/dev/null 2>&1
+        touch $HOME/fim
+    ) >/dev/null 2>&1 &
+    tput civis
+    echo -ne "\033[1;33m["
+    while true; do
+        for ((i = 0; i < 18; i++)); do
+            echo -ne "\033[1;31m#"
+            sleep 0.1s
+        done
+        [[ -e $HOME/fim ]] && rm $HOME/fim && break
+        echo -e "\033[1;33m]"
+        sleep 1s
+        tput cuu1
+        tput dl1
+        echo -ne "\033[1;33m["
+    done
+    echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
+    tput cnorm
+}
+
+fun_botOnOff() {
+    [[ $(ps x | grep "bot_teste" | grep -v grep | wc -l) = '0' ]] && {
+        clear
+        echo -e "\E[44;1;37m             INSTALADOR BOT TESTE                \E[0m\n"
+        echo -ne "\033[1;32mINFORME SEU TOKEN:\033[1;37m "
+        read token
+        echo ""
+        clear
+        echo -e "\033[1;32mINICIANDO BOT TESTE \033[0m\n"
+        fun_bot1() {
+            mkdir $HOME/BOT
+            [[ ! -e "$HOME/BOT/ShellBot.sh" ]] && {
+                wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh >$HOME/BOT/ShellBot.sh
+            }
+            [[ ! -e "$HOME/BOT/botssh" ]] && {
+                wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/botssh >$HOME/BOT/botssh
+            }
+            cd $HOME/BOT
+            screen -dmS bot_teste ./botssh $token >/dev/null 2>&1
+            [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
+                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd $HOME/BOT && sudo screen -dmS bot_teste ./botssh $token && cd $HOME" >>/etc/autostart
             } || {
                 sed -i '/bot_teste/d' /etc/autostart
-                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /root/BOT && sudo screen -dmS bot_teste ./botssh $token $btn1 $btn2 $linkbtn2 $btn3 $linkbtn3 $tempo $msg $msgfinal && cd $HOME" >>/etc/autostart
-            }    
-    clear && echo "BOT ATIVADO"
-} || {
-    screen -r -S "bot_teste" -X quit
-    clear && echo "BOT DESATIVADO"
+                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd $HOME/BOT/ && sudo screen -dmS bot_teste ./bot $token && cd $HOME" >>/etc/autostart
+            }
+        }
+        fun_bar 'fun_bot1'
+        [[ $(ps x | grep "bot_teste" | grep -v grep | wc -l) != '0' ]] && echo -e "\n\033[1;32m BOT TESTE ATIVADO !\033[0m" || echo -e "\n\033[1;31m ERRO! REANALISE SUAS INFORMACOES\033[0m"
+        sleep 2
+        menu
+    } || {
+        clear
+        echo -e "\033[1;32mPARANDO BOT TESTE... \033[0m\n"
+        fun_bot2() {
+            screen -r -S "bot_teste" -X quit
+            screen -wipe 1>/dev/null 2>/dev/null
+            [[ $(grep -wc "bot_teste" /etc/autostart) != '0' ]] && {
+                sed -i '/bot_teste/d' /etc/autostart
+            }
+            sleep 1
+        }
+        fun_bar 'fun_bot2'
+        echo -e "\n\033[1;32m \033[1;31mBOT TESTE PARADO! \033[0m"
+        sleep 2
+        menu
+    }
 }
+
+fun_instbot() {
+    echo -e "\E[44;1;37m             INSTALADOR BOT TESTE                \E[0m\n"
+    echo -e "                 \033[1;33m[\033[1;31m!\033[1;33m] \033[1;31mATENCAO \033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
+    echo -e "\n\033[1;32m1° \033[1;37m- \033[1;33mPELO SEU TELEGRAM ACESSE OS SEGUINTE BOT\033[1;37m:\033[0m"
+    echo -e "\n\033[1;32m2° \033[1;37m- \033[1;33mBOT \033[1;37m@BotFather \033[1;33mCRIE O SEU BOT \033[1;31mOPCAO: \033[1;37m/newbot\033[0m"
+    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[1;32m"
+    echo ""
+    read -p "DESEJA CONTINUAR ? [s/n]: " -e -i s resposta
+    [[ "$resposta" = 's' ]] && {
+        fun_botOnOff
+    } || {
+        echo -e "\n\033[1;31mRetornando...\033[0m"
+        sleep 2
+        menu
+    }
+}
+[[ -f "$HOME/BOT/ShellBot.sh" ]] && fun_botOnOff || fun_instbot
+#fim
