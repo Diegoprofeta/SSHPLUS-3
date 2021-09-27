@@ -168,12 +168,12 @@ infouser () {
 unset botao1
 botao1=''
 ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR1 🇧🇷' --callback_data 'gerarssh'
-#ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR2 🇧🇷' --callback_data 'gerarssh2'
-#ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR3 🇧🇷' --callback_data 'gerarssh3'
-ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text "$nome_bt2" --callback_data '2' --url "$link_bt2"
+ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR2 🇧🇷' --callback_data 'gerarssh2'
+ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR3 🇧🇷' --callback_data 'gerarssh3'
+ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '$nome_bt2' --callback_data '2' --url '$link_bt2'
 ShellBot.regHandleFunction --function criarteste --callback_data gerarssh
-#ShellBot.regHandleFunction --function criarteste2 --callback_data gerarssh2
-#ShellBot.regHandleFunction --function criarteste3 --callback_data gerarssh3
+ShellBot.regHandleFunction --function criarteste2 --callback_data gerarssh2
+ShellBot.regHandleFunction --function criarteste3 --callback_data gerarssh3
 unset keyboard1
 keyboard1="$(ShellBot.InlineKeyboardMarkup -b 'botao1')"
 while :; do
