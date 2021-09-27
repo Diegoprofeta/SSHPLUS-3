@@ -39,7 +39,7 @@ fun_botOnOff() {
         fun_bot1() {
             mkdir $HOME/BOT
             [[ ! -e "$HOME/BOT/ShellBot.sh" ]] && {
-                wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/ShellBot.sh >$HOME/BOT/ShellBot.sh
+                wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Sistema/ShellBot.sh
             }
             [[ ! -e "$HOME/BOT/botssh" ]] && {
                 wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/botssh >$HOME/BOT/botssh
