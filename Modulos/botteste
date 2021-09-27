@@ -34,12 +34,35 @@ fun_botOnOff() {
         echo -e "\E[44;1;37m             INSTALADOR BOT TESTE                \E[0m\n"
         echo -ne "\033[1;32mINFORME SEU TOKEN:\033[1;37m "
         read token
+        clear
+        echo "-----------MODEO-----------"
+        echo "=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
+        echo "   MENSAGEM DE BOAS VINDAS   "
+        echo "=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
+        echo "        MENSAGEM FINAL         "
+        echo ""
         echo -ne "\033[1;32mMENSAGEM DE BOAS VINDAS:\033[1;37m "
         read bvindo
+        echo -ne "\033[1;32mMENSAGEM FINAL:\033[1;37m "
+        read mfinal
+        clear
+        echo -ne "\033[1;32mNOME DO BOTÃO 1(GERADOR SSH):\033[1;37m "
+        read bt1
+        clear
+        echo -ne "\033[1;32mNOME DO BOTÃO 2(PERSONALIZADO):\033[1;37m "
+        read bt2
+        echo -ne "\033[1;32mLINK DO BOTÃO 2:\033[1;37m "
+        read link2
+        clear
+        echo -ne "\033[1;32mNOME DO BOTÃO 3(PERSONALIZADO):\033[1;37m "
+        read bt3
+        echo -ne "\033[1;32mLINK DO BOTÃO 3:\033[1;37m "
+        read link3
+        clear
         echo ""
         echo -e "\033[1;32mINICIANDO BOT TESTE \033[0m\n"
         fun_bot1() {
-            rm $HOME/BOT
+            rm -rf $HOME/BOT
             mkdir $HOME/BOT
             [[ ! -e "$HOME/BOT/ShellBot.sh" ]] && {
                 wget -qO- https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Sistema/ShellBot.sh >$HOME/BOT/ShellBot.sh
@@ -49,7 +72,13 @@ fun_botOnOff() {
             }
             chmod 777 $HOME/BOT/botssh
             chmod 777 $HOME/BOT/ShellBot.sh
-            sed -i "s/!#teste/$bvindo/g" $HOME/BOT/botssh >/dev/null 2>&1
+            sed -i "s/!#bvindo/$bvindo/g" $HOME/BOT/botssh >/dev/null 2>&1
+            sed -i "s/!#mfinal/$mfinal/g" $HOME/BOT/botssh >/dev/null 2>&1
+            sed -i "s/!#bt1/$bt1/g" $HOME/BOT/botssh >/dev/null 2>&1
+            sed -i "s/!#bt2/$bt2/g" $HOME/BOT/botssh >/dev/null 2>&1
+            sed -i "s/!#link2/$link2/g" $HOME/BOT/botssh >/dev/null 2>&1
+            sed -i "s/!#bt3/$bt3/g" $HOME/BOT/botssh >/dev/null 2>&1
+            sed -i "s/!#link3/$link3/g" $HOME/BOT/botssh >/dev/null 2>&1
             cd $HOME/BOT
             screen -dmS bot_teste ./botssh $token >/dev/null 2>&1
             [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
