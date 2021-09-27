@@ -32,8 +32,10 @@ fun_botOnOff() {
     [[ $(ps x | grep "bot_teste" | grep -v grep | wc -l) = '0' ]] && {
         clear
         echo -e "\E[44;1;37m             INSTALADOR BOT TESTE                \E[0m\n"
-        echo -ne "\033[1;32mINFORME SEU TOKEN:\033[1;37m "
+        echo -ne "\033[1;32mINFORME SEU TOKEN:\033[1;37m "]
         read token
+        echo -ne "\033[1;32mMENSAGEM DE BOAS VINDAS:\033[1;37m "]
+        read bvindo
         echo ""
         echo -e "\033[1;32mINICIANDO BOT TESTE \033[0m\n"
         fun_bot1() {
@@ -47,12 +49,12 @@ fun_botOnOff() {
             chmod 777 $HOME/BOT/botssh
             chmod 777 $HOME/BOT/ShellBot.sh
             cd $HOME/BOT
-            screen -dmS bot_teste ./botssh $token >/dev/null 2>&1
+            screen -dmS bot_teste ./botssh $token $bvindo >/dev/null 2>&1
             [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
-                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd $HOME/BOT && sudo screen -dmS bot_teste ./botssh $token && cd $HOME" >>/etc/autostart
+                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd $HOME/BOT && sudo screen -dmS bot_teste ./botssh $token $bvindo && cd $HOME" >>/etc/autostart
             } || {
                 sed -i '/bot_teste/d' /etc/autostart
-                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd $HOME/BOT/ && sudo screen -dmS bot_teste ./botssh $token && cd $HOME" >>/etc/autostart
+                echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd $HOME/BOT/ && sudo screen -dmS bot_teste ./botssh $token $bvindo && cd $HOME" >>/etc/autostart
             }
         }
         fun_bar 'fun_bot1'
