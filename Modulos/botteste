@@ -35,7 +35,7 @@ fun_botOnOff() {
         echo -ne "\033[1;32mINFORME SEU TOKEN:\033[1;37m "
         read token
         clear
-        echo "-----------MODEO-----------"
+        echo "-----------MODELO-----------"
         echo "=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
         echo "   MENSAGEM DE BOAS VINDAS   "
         echo "=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
