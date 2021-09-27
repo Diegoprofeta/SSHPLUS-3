@@ -6,15 +6,6 @@ touch lista
 [[ -z $1 ]] && {
     clear && echo "INFORME O TOKEN" && return 0
 }
-[[ -z $2 ]] && {
-    clear && echo "MENSAGEM DE BOAS VINDAS:" && return 0
-}
-[[ -z $3 ]] && {
-    clear && echo "NOME DO BOTÃO 2:" && return 0
-}
-[[ -z $4 ]] && {
-    clear && echo "LINK DO BOTÃO 2:" && return 0
-}
 # Informações Server 2
 ip_server2="SEU-IP-AQUI"
 senha_server2="SUA-SENHA-AQUI"
@@ -23,9 +14,6 @@ ip_server3="SEU-IP-AQUI"
 senha_server3="SUA-SENHA-AQUI"
 [[ ! -e RESET ]] && touch RESET
 api_bot=$1
-boas_vindas=$2
-nome_bt2=$3
-link_bt2=$4
 ShellBot.init --token "$api_bot" --monitor --flush
 ShellBot.username
 
@@ -33,7 +21,7 @@ ShellBot.username
 menu() {
     local msg
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>$boas_vindas</b>\n"
+        msg+="<b>!#teste</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         msg+="Gere seu teste agora mesmo!"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
@@ -170,7 +158,7 @@ botao1=''
 ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR1 🇧🇷' --callback_data 'gerarssh'
 ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR2 🇧🇷' --callback_data 'gerarssh2'
 ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR3 🇧🇷' --callback_data 'gerarssh3'
-ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '$nome_bt2' --callback_data '2' --url '$link_bt2'
+ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '🇧🇷 SSH PREMIUM 🇧🇷' --callback_data '2' --url 't.me/sshplus' # LINK TELEGRAM
 ShellBot.regHandleFunction --function criarteste --callback_data gerarssh
 ShellBot.regHandleFunction --function criarteste2 --callback_data gerarssh2
 ShellBot.regHandleFunction --function criarteste3 --callback_data gerarssh3
