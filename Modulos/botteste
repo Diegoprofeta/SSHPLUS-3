@@ -32,7 +32,7 @@ fun_botOnOff() {
     [[ $(ps x | grep "bot_teste" | grep -v grep | wc -l) = '0' ]] && {
         clear
         echo -e "\E[44;1;37m             INSTALADOR BOT TESTE                \E[0m\n"
-        echo -ne "\033[1;32mINFORME O TOKEN:\033[1;37m "
+        echo -ne "\033[1;32mINFORME SEU TOKEN:\033[1;37m "
         read token
         echo ""
         echo -e "\033[1;32mINICIANDO BOT TESTE \033[0m\n"
