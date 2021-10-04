@@ -131,12 +131,12 @@ function online1 () {
        service apache2 restart
        cd /var/www/html && mkdir server
        cd
-       fun_bar 'screen -dmS online online' 'sleep 3'
-       [[ $(grep -wc "online" /etc/autostart) = '0' ]] && {
-           echo -e "ps x | grep 'online' | grep -v 'grep' && echo 'ON' || screen -dmS online online" >> /etc/autostart
+       fun_bar 'screen -dmS onlineapp onlineapp' 'sleep 3'
+       [[ $(grep -wc "onlineapp" /etc/autostart) = '0' ]] && {
+           echo -e "ps x | grep 'onlineapp' | grep -v 'grep' && echo 'ON' || screen -dmS onlineapp onlineapp" >> /etc/autostart
        } || {
            sed -i '/online/d' /etc/autostart
-           echo -e "ps x | grep 'online' | grep -v 'grep' && echo 'ON' || screen -dmS online online" >> /etc/autostart
+           echo -e "ps x | grep 'onlineapp' | grep -v 'grep' && echo 'ON' || screen -dmS onlineapp online" >> /etc/autostart
        }
        echo -e "\n\033[1;32m  ONLINE APP ATIVO !\033[0m"
        sleep 3
@@ -155,10 +155,10 @@ function online2 () {
    echo ""
    fun_stponline () {
       sleep 1
-      screen -r -S "online" -X quit
+      screen -r -S "onlineappapp" -X quit
       screen -wipe 1>/dev/null 2>/dev/null
-      [[ $(grep -wc "online" /etc/autostart) != '0' ]] && {
-          sed -i '/online/d' /etc/autostart
+      [[ $(grep -wc "onlineapp" /etc/autostart) != '0' ]] && {
+          sed -i '/onlineapp/d' /etc/autostart
       }
       sleep 1
    }
