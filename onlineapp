@@ -1,8 +1,7 @@
 #!/bin/bash
 clear
 fun_online() {
-    [[ -e /etc/default/dropbear ]] && _drp=$(ps aux | grep dropbear | grep -v grep | wc -l) _ondrp=$(($_drp - 1)) || _ondrp="0"
-    $_ondrp > /var/www/html/server/online
+   ps aux | grep dropbear | grep -v grep | wc -l > /var/www/html/server/online
 }
 while true; do
     echo 'verificando...'
