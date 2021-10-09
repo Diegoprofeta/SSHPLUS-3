@@ -1,3 +1,4 @@
+#!/bin/bash
 # Script modified by Yoru
 # Illegal selling and redistribution of this script is strictly prohibited
 # Please respect author's Property
