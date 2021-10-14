@@ -132,8 +132,11 @@ function onapp1 () {
        sed -i '/onlineapp/d' /etc/autostart
 	   echo -e "ps x | grep 'onlineapp' | grep -v 'grep' && echo 'ON' || screen -dmS onlineapp onlineapp" >> /etc/autostart
    }
+   IP=$(wget -qO- ipv4.icanhazip.com) >/dev/null 2>&1
    echo -e "\n\033[1;32m  ONLINE APP ATIVO !\033[0m"
-   sleep 3
+   echo -e "\033[1;31m \033[1;33mURL de Usuários Online para usar no App\033[0m"
+   echo -e " http://$IP:8888/server/online"
+   sleep 10
    menu
 }
 function onapp2 () {
