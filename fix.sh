@@ -86,7 +86,7 @@ PASS = ''
 BUFLEN = 4096 * 4
 TIMEOUT = 60
 DEFAULT_HOST = "127.0.0.1:$pt"
-RESPONSE = "HTTP/1.1 101 " + str(green) + str(CONECTA4G) + str(</font>) + "\r\n\r\n"
+RESPONSE = 'HTTP/1.1 101 <font color="green">CONECTA4G</font>'
 
 class Server(threading.Thread):
     def __init__(self, host, port):
