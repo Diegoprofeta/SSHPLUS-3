@@ -1,15 +1,21 @@
 #!/usr/bin/env python
 # encoding: utf-8
+ cat <<EOF > proxy.py
 import socket, threading, thread, select, signal, sys, time, getopt
 
 # CONFIG
 LISTENING_ADDR = '0.0.0.0'
-LISTENING_PORT = 1080
+try:
+   LISTENING_PORT = int(sys.argv[1])
+except:
+   LISTENING_PORT = 80
 PASS = ''
-
 # CONST
 BUFLEN = 4096 * 4
 TIMEOUT = 60
+MSG = ''
+COR = '<font color="null">'
+FTAG = '</font>'
 DEFAULT_HOST = "127.0.0.1:22"
 RESPONSE = "HTTP/1.1 101 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"
 
