@@ -120,7 +120,7 @@ function onapp1 () {
    clear
    echo -e "\n\033[1;32mINICIANDO O ONLINEAPP... \033[0m"
    echo ""
-   apt install apache2 > /dev/null 2>&1
+   apt install apache2 -y > /dev/null 2>&1
    sed -i "s/Listen 80/Listen 8888/g" /etc/apache2/ports.conf >/dev/null 2>&1
    service apache2 restart
    rm -rf /var/www/html/server >/dev/null 2>&1
