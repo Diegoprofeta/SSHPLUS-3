@@ -120,7 +120,7 @@ fun_udp1 () {
        }
 
        fun_udpqw10 () {
-           screen -dmS udpvpn9 /bin/badvpn-udpgw --listen-addr 127.0.0.1:7293 --max-clients 10000 --max-connections-for-client 8
+           screen -dmS udpvpn9 /bin/badvpn-udpgw --listen-addr 127.0.0.1:7292 --max-clients 10000 --max-connections-for-client 8
            [[ $(grep -wc "udpvpn9" /etc/autostart) = '0' ]] && {
 		       echo -e "ps x | grep 'udpvpn9' | grep -v 'grep' || screen -dmS udpvpn9 /bin/badvpn-udpgw --listen-addr 127.0.0.1:7292 --max-clients 10000 --max-connections-for-client 8 --client-socket-sndbuf 10000" >> /etc/autostart
 		   } || {
@@ -244,7 +244,7 @@ fun_udp1 () {
        }
 
        fun_udpon10 () {
-           screen -dmS udpvpn9 /bin/badvpn-udpgw --listen-addr 127.0.0.1:7293 --max-clients 10000 --max-connections-for-client 8
+           screen -dmS udpvpn9 /bin/badvpn-udpgw --listen-addr 127.0.0.1:7292 --max-clients 10000 --max-connections-for-client 8
            [[ $(grep -wc "udpvpn9" /etc/autostart) = '0' ]] && {
 		       echo -e "ps x | grep 'udpvpn9' | grep -v 'grep' || screen -dmS udpvpn9 /bin/badvpn-udpgw --listen-addr 127.0.0.1:7292 --max-clients 10000 --max-connections-for-client 8 --client-socket-sndbuf 10000" >> /etc/autostart
 		   } || {
