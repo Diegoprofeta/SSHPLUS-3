@@ -140,6 +140,7 @@ fun_udp1 () {
     fun_bar 'fun_udpqw7'
     fun_bar 'fun_udpqw8'
     fun_bar 'fun_udpqw9'
+    fun_bar 'fun_udpqw10'
     echo -e "\n  \033[1;32mBADVPN ATIVO !\033[0m"
     sleep 3
     menu
