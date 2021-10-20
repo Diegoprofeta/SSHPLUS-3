@@ -9,11 +9,11 @@ try:
    PORT = int(sys.argv[1])
 except:
    PORT = 80
-PASS = ''
+PASS = 'CONECTA4G'
 BUFLEN = 8196 * 8
 TIMEOUT = 60
-MSG = ''
-COR = '<font color="null">'
+MSG = 'CONECTA4G'
+COR = '<font color="green">'
 FTAG = '</font>'
 DEFAULT_HOST = '0.0.0.0:22'
 RESPONSE = "HTTP/1.1 101 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"
