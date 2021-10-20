@@ -1,23 +1,21 @@
 #!/usr/bin/env python3
 # encoding: utf-8
-import socket, threading, thread, select, signal, sys, time
-from os import system
-system("clear")
-#conexao
-IP = '0.0.0.0'
-try:
-   PORT = int(sys.argv[1])
-except:
-   PORT = 80
+import socket, threading, thread, select, signal, sys, time, getopt
+
 PASS = ''
+LISTENING_ADDR = '0.0.0.0'
+try:
+   LISTENING_PORT = int(sys.argv[1])
+except:
+   LISTENING_PORT = 80
 BUFLEN = 8196 * 8
 TIMEOUT = 60
 MSG = ''
 COR = '<font color="null">'
 FTAG = '</font>'
-DEFAULT_HOST = '0.0.0.0:22'
+DEFAULT_HOST = "127.0.0.1:22"
 RESPONSE = "HTTP/1.1 101 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"
- 
+
 class Server(threading.Thread):
     def __init__(self, host, port):
         threading.Thread.__init__(self)
