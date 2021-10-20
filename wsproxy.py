@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 import socket, threading, thread, select, signal, sys, time
+from os import system
+system("clear")
 #conexao
 IP = '0.0.0.0'
 try:
@@ -11,10 +13,10 @@ PASS = ''
 BUFLEN = 8196 * 8
 TIMEOUT = 60
 MSG = ''
-COR = '<font color="null">'
+COR = '<font color="">'
 FTAG = '</font>'
-DEFAULT_HOST = "127.0.0.1:22"
-RESPONSE = "HTTP/1.1 101 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"
+DEFAULT_HOST = '0.0.0.0:22'
+RESPONSE = "HTTP/1.1 200 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"
  
 class Server(threading.Thread):
     def __init__(self, host, port):
