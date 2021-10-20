@@ -9,11 +9,11 @@ try:
    PORT = int(sys.argv[1])
 except:
    PORT = 80
-PASS = 'DEAN'
+PASS = ''
 BUFLEN = 8196 * 8
 TIMEOUT = 60
-MSG = 'DEAN'
-COR = '<font color="#F535AA">'
+MSG = ''
+COR = '<font color="null">'
 FTAG = '</font>'
 DEFAULT_HOST = '0.0.0.0:22'
 RESPONSE = "HTTP/1.1 101 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"
