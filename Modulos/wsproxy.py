@@ -1,19 +1,21 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding: utf-8
-import socket, threading, thread, select, signal, sys, time, getopt
-
-PASS = ''
-LISTENING_ADDR = '0.0.0.0'
+import socket, threading, thread, select, signal, sys, time
+from os import system
+system("clear")
+#conexao
+IP = '0.0.0.0'
 try:
-   LISTENING_PORT = int(sys.argv[1])
+   PORT = int(sys.argv[1])
 except:
-   LISTENING_PORT = 80
-BUFLEN = 4096 * 4
+   PORT = 80
+PASS = ''
+BUFLEN = 8196 * 8
 TIMEOUT = 60
 MSG = ''
 COR = '<font color="null">'
 FTAG = '</font>'
-DEFAULT_HOST = "127.0.0.1:22"
+DEFAULT_HOST = '0.0.0.0:22'
 RESPONSE = "HTTP/1.1 101 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"
  
 class Server(threading.Thread):
@@ -24,7 +26,6 @@ class Server(threading.Thread):
         self.port = port
         self.threads = []
 	self.threadsLock = threading.Lock()
-	self.logLock = threading.Lock()
 
     def run(self):
         self.soc = socket.socket(socket.AF_INET)
@@ -49,10 +50,6 @@ class Server(threading.Thread):
             self.running = False
             self.soc.close()
             
-    def printLog(self, log):
-        self.logLock.acquire()
-        print log
-        self.logLock.release()
 	
     def addConn(self, conn):
         try:
@@ -87,9 +84,8 @@ class ConnectionHandler(threading.Thread):
         self.clientClosed = False
         self.targetClosed = True
         self.client = socClient
-        self.client_buffer = ''
+        self.client_buffer = 'DEAN'
         self.server = server
-        self.log = 'Connection: ' + str(addr)
 
     def close(self):
         try:
@@ -116,32 +112,30 @@ class ConnectionHandler(threading.Thread):
         
             hostPort = self.findHeader(self.client_buffer, 'X-Real-Host')
             
-            if hostPort == '':
+            if hostPort == 'DEAN':
                 hostPort = DEFAULT_HOST
 
             split = self.findHeader(self.client_buffer, 'X-Split')
 
-            if split != '':
+            if split != 'DEAN':
                 self.client.recv(BUFLEN)
             
-            if hostPort != '':
+            if hostPort != 'DEAN':
                 passwd = self.findHeader(self.client_buffer, 'X-Pass')
 				
                 if len(PASS) != 0 and passwd == PASS:
                     self.method_CONNECT(hostPort)
                 elif len(PASS) != 0 and passwd != PASS:
                     self.client.send('HTTP/1.1 400 WrongPass!\r\n\r\n')
-                elif hostPort.startswith('127.0.0.1') or hostPort.startswith('localhost'):
+                if hostPort.startswith(IP):
                     self.method_CONNECT(hostPort)
                 else:
-                    self.client.send('HTTP/1.1 403 Forbidden!\r\n\r\n')
+                   self.client.send('HTTP/1.1 403 Forbidden!\r\n\r\n')
             else:
                 print '- No X-Real-Host!'
                 self.client.send('HTTP/1.1 400 NoXRealHost!\r\n\r\n')
 
         except Exception as e:
-            self.log += ' - error: ' + e.strerror
-            self.server.printLog(self.log)
 	    pass
         finally:
             self.close()
@@ -151,14 +145,14 @@ class ConnectionHandler(threading.Thread):
         aux = head.find(header + ': ')
     
         if aux == -1:
-            return ''
+            return 'DEAN'
 
         aux = head.find(':', aux)
         head = head[aux+2:]
         aux = head.find('\r\n')
 
         if aux == -1:
-            return ''
+            return 'DEAN'
 
         return head[:aux];
 
@@ -171,7 +165,7 @@ class ConnectionHandler(threading.Thread):
             if self.method=='CONNECT':
                 port = 443
             else:
-                port = 80
+                port = 22
 
         (soc_family, soc_type, proto, _, address) = socket.getaddrinfo(host, port)[0]
 
@@ -180,15 +174,11 @@ class ConnectionHandler(threading.Thread):
         self.target.connect(address)
 
     def method_CONNECT(self, path):
-        self.log += ' - CONNECT ' + path
-        
         self.connect_target(path)
         self.client.sendall(RESPONSE)
-        self.client_buffer = ''
-
-        self.server.printLog(self.log)
+        self.client_buffer = 'DEAN'
         self.doCONNECT()
-
+                    
     def doCONNECT(self):
         socs = [self.client, self.target]
         count = 0
@@ -223,49 +213,20 @@ class ConnectionHandler(threading.Thread):
                 break
 
 
-def print_usage():
-    print 'Use: proxy.py -p <port>'
-    print '       proxy.py -b <ip> -p <porta>'
-    print '       proxy.py -b 0.0.0.0 -p 22'
 
-def parse_args(argv):
-    global LISTENING_ADDR
-    global LISTENING_PORT
-    
-    try:
-        opts, args = getopt.getopt(argv,"hb:p:",["bind=","port="])
-    except getopt.GetoptError:
-        print_usage()
-        sys.exit(2)
-    for opt, arg in opts:
-        if opt == '-h':
-            print_usage()
-            sys.exit()
-        elif opt in ("-b", "--bind"):
-            LISTENING_ADDR = arg
-        elif opt in ("-p", "--port"):
-            LISTENING_PORT = int(arg)
-    
-
-def main(host=LISTENING_ADDR, port=LISTENING_PORT):
-    
-    print "\033[0;34m━"*8,"\033[1;32m PROXY WEBSOCKET","\033[0;34m━"*8,"\n"
-    print "\033[1;33mIP:\033[1;32m " + LISTENING_ADDR
-    print "\033[1;33mPORTA:\033[1;32m " + str(LISTENING_PORT) + "\n"
+def main(host=IP, port=PORT):
+    print "\033[0;34m━"*8,"\033[1;32m PROXY SOCKS","\033[0;34m━"*8,"\n"
+    print "\033[1;33mIP:\033[1;32m " + IP
+    print "\033[1;33mPORTA:\033[1;32m " + str(PORT) + "\n"
     print "\033[0;34m━"*10,"\033[1;32m SSHPLUS","\033[0;34m━\033[1;37m"*11,"\n"
-    
-    
-    server = Server(LISTENING_ADDR, LISTENING_PORT)
+    server = Server(IP, PORT)
     server.start()
-
     while True:
         try:
             time.sleep(2)
         except KeyboardInterrupt:
-            print 'Parando...'
+            print '\nParando...'
             server.close()
             break
-    
 if __name__ == '__main__':
-    parse_args(sys.argv[1:])
     main()
