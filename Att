@@ -1,1 +1,212 @@
-g
+{
+ "Version": "1.0.1",
+ "ReleaseNotes": "",
+ "Servers": [
+  {
+   "Name": "BR-AWS | FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server01.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server01.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server01.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online01.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "BR-AZURE 02| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server02.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server02.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server02.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online02.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "BR-AZURE 03| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server03.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server03.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server03.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online03.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "BR-AWS 04| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server04.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server04.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server04.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online04.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "BR-AZURE 05| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server05.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server05.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server05.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online05.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "BR-AWS 06| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server06.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server06.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server06.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online06.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "USA-OCEAN 07 | FREE",
+   "FLAG": "us.png",
+   "ServerIP": "server07.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server07.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server07.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online07.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "USA-OCEAN 08 | FREE",
+   "FLAG": "us.png",
+   "ServerIP": "server08.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server08.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server08.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online08.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "CA-OCEAN 09 | FREE",
+   "FLAG": "ca.png",
+   "ServerIP": "server09.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server09.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server09.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online09.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "CA-OCEAN 10 | FREE",
+   "FLAG": "ca.png",
+   "ServerIP": "server10.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server10.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server10.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online10.kiritossh.xyz:8888/server/online"
+  },
+  {
+   "Name": "USA-OCEAN 11| TIM FREE",
+   "FLAG": "us.png",
+   "ServerIP": "server11.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "",
+   "SSLPort": "",
+   "TlsPAY": "",
+   "User": "1111",
+   "Pass": "1111",
+   "OnlineUrl": "http://online11.kiritossh.xyz:8888/server/online"
+  }
+ ],
+ "Networks": [
+  {
+   "Name": "VIVO",
+   "Payload": "GET \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "vivo.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "proxy"
+  },
+  {
+   "Name": "VIVO TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "vivo.kiritossh.xyz",
+   "ProxyIP": "vivo.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "tlsws"
+  },
+  {
+   "Name": "TIM TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "tim.kiritossh.xyz",
+   "ProxyIP": "tim.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "tlsws"
+  },
+  {
+   "Name": "TIM SOCKS",
+   "Payload": "HTTP/ 2\nHOST : m.opera.com\n\n",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "",
+   "ProxyPort": "",
+   "Info": "direct"
+  },
+  {
+   "Name": "CLARO",
+   "Payload": "GET \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "proxy"
+  },
+  {
+   "Name": "CLARO TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "claro.kiritossh.xyz",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "tlsws"
+  },
+  {
+   "Name": "OI",
+   "Payload": "GET \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "oii.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "proxy"
+  },
+  {
+   "Name": "OI TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "oii.kiritossh.xyz",
+   "ProxyIP": "oii.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "tlsws"
+  }
+ ]
+}
