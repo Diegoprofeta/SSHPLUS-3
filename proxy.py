@@ -1,140 +1,288 @@
-#!/usr/bin/env python
-import socket  
-import hashlib
-import base64
+#!/usr/bin/env python3
+# encoding: utf-8
+import socket, threading, thread, select, signal, sys, time, getopt
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
-sock.bind(("", 80))  
-sock.listen(5)  
+# Python Proxy ou Socks
 
-WS_MAGIC = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
-HandShaken = False
-print "TCPServer Waiting for client on port 9999"  
+# Porta do Proxy
+proxyport = input('\033[34mDIGITE LA PUERTA DEL PROXY \033[0;0m <--> \033[0m No puede ser un puerto que ya esté usando: ')
 
+# CONFIG
+LISTENING_ADDR = '0.0.0.0'
+LISTENING_PORT = proxyport
 
-header = ''
-tmp = ''
-isInFrame = False
-frame_fin = False
-frame_rsv = ''
-frame_opcode = 0
-frame_masked = True
-frame_mask_array = []
-frame_payloadlen1 = 0
-frame_header_len = 0
-frame_len = 0
+PASS = ''
 
-def packFrame(data):
-    ''' simple pack text frame '''
-
-    # first byte 
-    b0 = 0
-    b0 |= (1<<7)  # fin 
-    b0 |= 0 << 4  # rsv
-    b0 |= 1       # opcode
-
-    # second byte , payload length and mask
-    b1 = 0
-    l = len(data)
-    if l <= 125:
-        b1 |= l
-    else:
-        raise Exception('data length too long , haven\'t support yet')
-
-    raw = ''.join([chr(b0),chr(b1),data])
-    return raw
+# CONST
+BUFLEN = 4096 * 4
+TIMEOUT = 60
+DEFAULT_HOST = '127.0.0.1:22'
+RESPONSE = 'HTTP/1.1 200 <font color="#00FF66">@dankelthaher</font>\r\n\r\n'
+#RESPONSE = 'HTTP/1.1 200 Hello_World!\r\nContent-length: 0\r\n\r\nHTTP/1.1 200 Connection established\r\n\r\n'  # lint:ok
 
 
+class Server(threading.Thread):
+    def __init__(self, host, port):
+        threading.Thread.__init__(self)
+        self.running = False
+        self.host = host
+        self.port = port
+        self.threads = []
+        self.threadsLock = threading.Lock()
+        self.logLock = threading.Lock()
 
-client , address = sock.accept()
+    def run(self):
+        self.soc = socket.socket(socket.AF_INET)
+        self.soc.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.soc.settimeout(2)
+        self.soc.bind((self.host, self.port))
+        self.soc.listen(0)
+        self.running = True
 
-while True:
+        try:
+            while self.running:
+                try:
+                    c, addr = self.soc.accept()
+                    c.setblocking(1)
+                except socket.timeout:
+                    continue
 
-    if HandShaken == False:  
-        header += client.recv(16)  
-        end_of_header = header.find("\x0d\x0a\x0d\x0a")
-        if end_of_header >= 0:
-            print header
-            raw = header[:end_of_header].splitlines()
-            http_status_line = raw[0].strip()
-            http_headers = {}
-            for h in raw[1:]:
-                i = h.find(':')
-                if i>0:
-                    key = h[:i].strip()
-                    value = h[i+1:].strip()
-                    http_headers[key] = value.decode('utf-8')
+                conn = ConnectionHandler(c, self, addr)
+                conn.start()
+                self.addConn(conn)
+        finally:
+            self.running = False
+            self.soc.close()
 
-            sec_websocket_accept_got = http_headers["Sec-WebSocket-Key"].strip()
-            key = http_headers["Sec-WebSocket-Key"].strip()
-            sha1 = hashlib.sha1()
-            sha1.update(key + WS_MAGIC)
-            sec_websocket_accept = base64.b64encode(sha1.digest())
-            response  = "HTTP/1.1 101 Switching Protocols\x0d\x0a"
-            response += "Upgrade: websocket\x0d\x0a"
-            response += "Connection: Upgrade\x0d\x0a"
-            response += "Sec-WebSocket-Accept: %s\x0d\x0a" % sec_websocket_accept
-            response += "Sec-WebSocket-Protocol: %s\x0d\x0a" % http_headers["Sec-WebSocket-Protocol"]
-            response += "\x0d\x0a"
-            client.send(response)
-            HandShaken = True
-    else:
-        tmp += client.recv(16)
-        print('tmp length: '+str(len(tmp)))
-        if not isInFrame :
-            b = ord(tmp[0])
+    def printLog(self, log):
+        self.logLock.acquire()
+        print log
+        self.logLock.release()
 
-            # FIN RSV OPCODE
-            frame_fin = (b & 0x80) != 0
-            frame_rsv = (b & 0x70) >> 4
-            frame_opcode = b & 0x0f
-            print('frame_fin: '+ str(frame_fin))
-            print('frame_rsv: '+ str(frame_rsv))
-            print('frame_opcode: '+str(frame_opcode))
+    def addConn(self, conn):
+        try:
+            self.threadsLock.acquire()
+            if self.running:
+                self.threads.append(conn)
+        finally:
+            self.threadsLock.release()
 
-            #mask payload length
-            b = ord(tmp[1])
-            frame_masked = (b & 0x80) != 0
-            frame_payload_len = b & 0x7f
+    def removeConn(self, conn):
+        try:
+            self.threadsLock.acquire()
+            self.threads.remove(conn)
+        finally:
+            self.threadsLock.release()
 
-            print('frame_masked: '+ str(frame_masked))
-            print('frame_payload_len: '+str(frame_payload_len))
+    def close(self):
+        try:
+            self.running = False
+            self.threadsLock.acquire()
 
-            if frame_masked:
-                mask_len = 4
+            threads = list(self.threads)
+            for c in threads:
+                c.close()
+        finally:
+            self.threadsLock.release()
+
+
+class ConnectionHandler(threading.Thread):
+    def __init__(self, socClient, server, addr):
+        threading.Thread.__init__(self)
+        self.clientClosed = False
+        self.targetClosed = True
+        self.client = socClient
+        self.client_buffer = ''
+        self.server = server
+        self.log = 'Connection: ' + str(addr)
+
+    def close(self):
+        try:
+            if not self.clientClosed:
+                self.client.shutdown(socket.SHUT_RDWR)
+                self.client.close()
+        except:
+            pass
+        finally:
+            self.clientClosed = True
+
+        try:
+            if not self.targetClosed:
+                self.target.shutdown(socket.SHUT_RDWR)
+                self.target.close()
+        except:
+            pass
+        finally:
+            self.targetClosed = True
+
+    def run(self):
+        try:
+            self.client_buffer = self.client.recv(BUFLEN)
+
+            hostPort = self.findHeader(self.client_buffer, 'X-Real-Host')
+
+            if hostPort == '':
+                hostPort = DEFAULT_HOST
+
+            split = self.findHeader(self.client_buffer, 'X-Split')
+
+            if split != '':
+                self.client.recv(BUFLEN)
+
+            if hostPort != '':
+                passwd = self.findHeader(self.client_buffer, 'X-Pass')
+				
+                if len(PASS) != 0 and passwd == PASS:
+                    self.method_CONNECT(hostPort)
+                elif len(PASS) != 0 and passwd != PASS:
+                    self.client.send('HTTP/1.1 400 WrongPass!\r\n\r\n')
+                elif hostPort.startswith('127.0.0.1') or hostPort.startswith('localhost'):
+                    self.method_CONNECT(hostPort)
+                else:
+                    self.client.send('HTTP/1.1 403 Forbidden!\r\n\r\n')
             else:
-                mask_len = 0
+                print '- No X-Real-Host!'
+                self.client.send('HTTP/1.1 400 NoXRealHost!\r\n\r\n')
 
-            frame_header_len = 2+mask_len
-            print('frame_header_len: '+str(frame_header_len))
+        except Exception as e:
+            self.log += ' - error: ' + e.strerror
+            self.server.printLog(self.log)
+	    pass
+        finally:
+            self.close()
+            self.server.removeConn(self)
 
-            if len(tmp) >= frame_header_len:
-                i = 2
-                frame_mask = None
-                if frame_masked:
-                    frame_mask = tmp[i:i+4]
-                for j in range(0, 4):
-                    frame_mask_array.append(ord(frame_mask[j]))
-                i += 4
+    def findHeader(self, head, header):
+        aux = head.find(header + ': ')
 
-                frame_len = frame_header_len + frame_payload_len
-                isInFrame = True
-        elif len(tmp) >= frame_len:
-            data = tmp[frame_header_len:frame_len]
-            payload = bytearray(data)
-            if frame_masked:
-               for k in xrange(0, frame_payload_len):
-                  payload[k] ^= frame_mask_array[ k % 4]
+        if aux == -1:
+            return ''
 
-            print('payload is: '+payload)
-            tmp = tmp[frame_len:]
-            isInFrame = False
-            frame_fin = False
-            frame_rsv = ''
-            frame_opcode = 0
-            frame_masked = True
-            frame_mask_array = []
-            frame_payloadlen1 = 0
-            frame_header_len = 0
-            frame_len = 0
-            client.send(packFrame('hello, browser'))
+        aux = head.find(':', aux)
+        head = head[aux+2:]
+        aux = head.find('\r\n')
+
+        if aux == -1:
+            return ''
+
+        return head[:aux];
+
+    def connect_target(self, host):
+        i = host.find(':')
+        if i != -1:
+            port = int(host[i+1:])
+            host = host[:i]
+        else:
+            if self.method=='CONNECT':
+                port = 443
+            else:
+                port = 80
+
+        (soc_family, soc_type, proto, _, address) = socket.getaddrinfo(host, port)[0]
+
+        self.target = socket.socket(soc_family, soc_type, proto)
+        self.targetClosed = False
+        self.target.connect(address)
+
+    def method_CONNECT(self, path):
+        self.log += ' - CONNECT ' + path
+
+        self.connect_target(path)
+        self.client.sendall(RESPONSE)
+        self.client_buffer = ''
+
+        self.server.printLog(self.log)
+        self.doCONNECT()
+
+    def doCONNECT(self):
+        socs = [self.client, self.target]
+        count = 0
+        error = False
+        while True:
+            count += 1
+            (recv, _, err) = select.select(socs, [], socs, 3)
+            if err:
+                error = True
+            if recv:
+                for in_ in recv:
+		    try:
+                        data = in_.recv(BUFLEN)
+                        if data:
+			    if in_ is self.target:
+				self.client.send(data)
+                            else:
+                                while data:
+                                    byte = self.target.send(data)
+                                    data = data[byte:]
+
+                            count = 0
+			else:
+			    break
+		    except:
+                        error = True
+                        break
+            if count == TIMEOUT:
+                error = True
+
+            if error:
+                break
+
+
+def print_usage():
+    print 'Usage: proxy.py -p <port>'
+    print '       proxy.py -b <bindAddr> -p <port>'
+    print '       proxy.py -b 0.0.0.0 -p 80'
+
+def parse_args(argv):
+    global LISTENING_ADDR
+    global LISTENING_PORT
+
+    try:
+        opts, args = getopt.getopt(argv,"hb:p:",["bind=","port="])
+    except getopt.GetoptError:
+        print_usage()
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print_usage()
+            sys.exit()
+        elif opt in ("-b", "--bind"):
+            LISTENING_ADDR = arg
+        elif opt in ("-p", "--port"):
+            LISTENING_PORT = int(arg)
+
+
+def main(host=LISTENING_ADDR, port=LISTENING_PORT):
+
+    print "\033[34m:-------------PythonProxy-------------:\033[0;0m"
+    print "\033[34m:-------------FUNCIONANDO LEGAL:-------------\033[0;0m"
+    print "\033[34m:-------------LISTENING: \033[0;0m" + LISTENING_ADDR
+    print "\033[34m:-------------RODANDO EN LA PUERTA: \033[0;0m" + str(LISTENING_PORT) + "\n"
+    print ":---CANAL: @dankelnetfreecanal BY: @dankelthaher---\n"
+    print ":---DEJE RODANDO EN SEGUNDO PLAN-------\n"
+    print "\033[31m :---------- PRECIONA,  CTRL A D ------------: \033[0;0m"
+    print ":---------------------------------------:\n"
+
+    server = Server(LISTENING_ADDR, LISTENING_PORT)
+    server.start()
+
+    while True:
+        try:
+            time.sleep(2)
+        except KeyboardInterrupt:
+            print '\033[31m'+'----PARANDO'+'\033[0;0m'
+            server.close()
+            break
+
+if __name__ == '__main__':
+    parse_args(sys.argv[1:])
+    main()
+G_ADDR = arg
+        elif opt in ("-p", "--port"):
+            LISTENING_PORT = int(arg)
+
+
+def main(host=LISTENING_ADDR, port=LISTENING_PORT):
+
+    print "\033[34m:-------------PythonProxy-------------:\033[0;0m"
+    print "\033[34
