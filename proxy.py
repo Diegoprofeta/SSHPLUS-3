@@ -2,24 +2,21 @@
 # encoding: utf-8
 import socket, threading, thread, select, signal, sys, time, getopt
 
-# Python Proxy ou Socks
-
-# Porta do Proxy
-proxyport = input('\033[34mDIGITE LA PUERTA DEL PROXY \033[0;0m <--> \033[0m No puede ser un puerto que ya esté usando: ')
-
-# CONFIG
+# Listen
 LISTENING_ADDR = '0.0.0.0'
-LISTENING_PORT = proxyport
-
+if sys.argv[1:]:
+  LISTENING_PORT = sys.argv[1]
+else:
+  LISTENING_PORT = 80  
+#Pass
 PASS = ''
 
 # CONST
 BUFLEN = 4096 * 4
 TIMEOUT = 60
-DEFAULT_HOST = '127.0.0.1:22'
-RESPONSE = 'HTTP/1.1 200 <font color="#00FF66">@dankelthaher</font>\r\n\r\n'
+DEFAULT_HOST = '127.0.0.1:443'
+RESPONSE = ''
 #RESPONSE = 'HTTP/1.1 200 Hello_World!\r\nContent-length: 0\r\n\r\nHTTP/1.1 200 Connection established\r\n\r\n'  # lint:ok
-
 
 class Server(threading.Thread):
     def __init__(self, host, port):
@@ -35,7 +32,8 @@ class Server(threading.Thread):
         self.soc = socket.socket(socket.AF_INET)
         self.soc.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.soc.settimeout(2)
-        self.soc.bind((self.host, self.port))
+        intport = int(self.port)
+        self.soc.bind((self.host, intport))
         self.soc.listen(0)
         self.running = True
 
@@ -176,7 +174,7 @@ class ConnectionHandler(threading.Thread):
             if self.method=='CONNECT':
                 port = 443
             else:
-                port = 80
+                port = sys.argv[1]
 
         (soc_family, soc_type, proto, _, address) = socket.getaddrinfo(host, port)[0]
 
@@ -223,7 +221,6 @@ class ConnectionHandler(threading.Thread):
                         break
             if count == TIMEOUT:
                 error = True
-
             if error:
                 break
 
@@ -236,7 +233,7 @@ def print_usage():
 def parse_args(argv):
     global LISTENING_ADDR
     global LISTENING_PORT
-
+    
     try:
         opts, args = getopt.getopt(argv,"hb:p:",["bind=","port="])
     except getopt.GetoptError:
@@ -253,36 +250,20 @@ def parse_args(argv):
 
 
 def main(host=LISTENING_ADDR, port=LISTENING_PORT):
-
-    print "\033[34m:-------------PythonProxy-------------:\033[0;0m"
-    print "\033[34m:-------------FUNCIONANDO LEGAL:-------------\033[0;0m"
-    print "\033[34m:-------------LISTENING: \033[0;0m" + LISTENING_ADDR
-    print "\033[34m:-------------RODANDO EN LA PUERTA: \033[0;0m" + str(LISTENING_PORT) + "\n"
-    print ":---CANAL: @dankelnetfreecanal BY: @dankelthaher---\n"
-    print ":---DEJE RODANDO EN SEGUNDO PLAN-------\n"
-    print "\033[31m :---------- PRECIONA,  CTRL A D ------------: \033[0;0m"
-    print ":---------------------------------------:\n"
-
+    print "\n:-------PythonProxy-------:\n"
+    print "Listening addr: " + LISTENING_ADDR
+    print "Listening port: " + str(LISTENING_PORT) + "\n"
+    print ":-------------------------:\n"
     server = Server(LISTENING_ADDR, LISTENING_PORT)
     server.start()
-
     while True:
         try:
             time.sleep(2)
         except KeyboardInterrupt:
-            print '\033[31m'+'----PARANDO'+'\033[0;0m'
+            print 'Stopping...'
             server.close()
             break
 
+#######    parse_args(sys.argv[1:])
 if __name__ == '__main__':
-    parse_args(sys.argv[1:])
     main()
-G_ADDR = arg
-        elif opt in ("-p", "--port"):
-            LISTENING_PORT = int(arg)
-
-
-def main(host=LISTENING_ADDR, port=LISTENING_PORT):
-
-    print "\033[34m:-------------PythonProxy-------------:\033[0;0m"
-    print "\033[34
