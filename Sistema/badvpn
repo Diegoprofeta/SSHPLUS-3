@@ -3,10 +3,11 @@ fun_badvpn() {
     clear
     echo -e "\E[44;1;37m            GERENCIAR BADVPN             \E[0m"
     echo ""
-    [[ $(netstat -nplt | grep -wc 'badvpn-ud') != '0' ]] && {
+    if ps x | grep -w udpvpn | grep -v grep 1>/dev/null 2>/dev/null; then
         echo -e "\033[1;33mPORTAS\033[1;37m: \033[1;32m$(netstat -nplt | grep 'badvpn-ud' | awk {'print $4'} | cut -d: -f2 | xargs)"
-    } || {
-    }
+    else
+        echo ""
+    fi
     var_sks1=$(ps x | grep "udpvpn"|grep -v grep > /dev/null && echo -e "\033[1;32m◉ " || echo -e "\033[1;31m○ ")
     echo ""
     echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mATIVAR BADVPN(PADRÃO 7300) $var_sks1 \033[0m"
@@ -51,8 +52,6 @@ fun_badvpn() {
                 }
                 sleep 1
             }
-            echo ""
-            echo -e "\033[1;32mINICIANDO O BADVPN\033[1;33m"
             echo ""
             fun_udpon
             echo ""
