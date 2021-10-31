@@ -76,7 +76,7 @@ fun_badvpn() {
                 screen -dmS udpvpn /bin/badvpn-udpgw --listen-addr 127.0.0.1:$porta --max-clients 10000 --max-connections-for-client 8
                 sleep 1
             }
-            fun_bar 'abrirptbad'
+            abrirptbad
             echo ""
             echo -e "\033[1;32mBADVPN ATIVADO COM SUCESSO\033[1;33m"
             sleep 2
