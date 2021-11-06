@@ -35,6 +35,7 @@ fun_swap() {
             chmod 600 /bin/ram.img > /dev/null 2>&1
             mkswap /bin/ram.img > /dev/null 2>&1
             swapon /bin/ram.img > /dev/null 2>&1
+            echo 50  > /proc/sys/vm/swappiness
             echo '/bin/ram.img none swap sw 0 0' | sudo tee -a /etc/fstab > /dev/null 2>&1
             echo ""
 			echo -e "\033[1;32mMEMORIA VIRTUAL ATIVADO COM SUCESSO\033[1;33m"
