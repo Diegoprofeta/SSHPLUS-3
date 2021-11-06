@@ -3,8 +3,8 @@ fun_swap() {
     clear
 		echo -e "\E[44;1;37m            GERENCIAR MEMORIA VIRTUAL             \E[0m"
         echo ""
-		echo "O swap é uma área de troca usada para aumentar a quantidade de memória RAM do sistema(RECOMENTADO PARA MAQUINAS COM POUCA MEMORIA RAM)."
-        echo "Antes de ativar, saiba a quantidade de armazenamento que sua maquina possui, sempre deixe armazenamento de sobra para evitar travamentos."
+		echo "\033[1;33mO swap é uma área de troca usada para aumentar a quantidade \nde memória RAM do sistema(RECOMENTADO PARA MAQUINAS COM POUCA MEMORIA RAM).\033[0m"
+        echo "\033[1;33mAntes de ativar, saiba a quantidade de armazenamento que sua \nmaquina possui, sempre deixe armazenamento de sobra para evitar travamentos.\033[0m"
         echo ""
 		echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mATIVAR SWAP / ALTERAR VALOR DO SWAP \033[0m"
 		echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mDESATIVAR SWAP\033[0m"
@@ -29,12 +29,12 @@ fun_swap() {
 			echo -e "\033[1;32mINICIANDO MEMORIA VIRTUAL \033[1;31m$gigas GB\033[1;33m"
 			echo ""
             swapoff -a
-            rm -rf /bin/ram.img
-            fallocate -l ${gigas}G /bin/ram.img
-            chmod 600 /bin/ram.img
-            mkswap /bin/ram.img
-            swapon /bin/ram.img
-            echo '/bin/ram.img none swap sw 0 0' | sudo tee -a /etc/fstab
+            rm -rf /bin/ram.img > /dev/null 2>&1
+            fallocate -l ${gigas}G /bin/ram.img > /dev/null 2>&1
+            chmod 600 /bin/ram.img > /dev/null 2>&1
+            mkswap /bin/ram.img > /dev/null 2>&1
+            swapon /bin/ram.img > /dev/null 2>&1
+            echo '/bin/ram.img none swap sw 0 0' | sudo tee -a /etc/fstab > /dev/null 2>&1
             echo ""
 			echo -e "\033[1;32mMEMORIA VIRTUAL ATIVADO COM SUCESSO\033[1;33m"
             sleep 2
@@ -43,7 +43,7 @@ fun_swap() {
             clear
 			echo -e "\E[44;1;37m            DESATIVANDO MEMORIA VIRTUAL              \E[0m"
             swapoff -a
-            rm -rf /bin/ram.img
+            rm -rf /bin/ram.img > /dev/null 2>&1
             echo ""
 			echo -e "\033[1;32mBADVPN DESATIVADO COM SUCESSO!\033[1;33m"
 			sleep 2
