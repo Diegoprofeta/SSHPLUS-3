@@ -23,7 +23,9 @@ echo -e "${RED}$banner${SCOLOR}"
     chmod +x $PREFIX/bin/slowdns
     [[ $(grep -c 'slowdns' $PREFIX/etc/profile) == '0' ]] && echo 'slowdns' >> $PREFIX/etc/profile
     echo -e "\n${GREEN}BAIXANDO O SCRIPT POR FAVOR AGUARDE ! ${SCOLOR}"
-    curl -O https://github.com/rodrigo12xd/SSHPLUS/raw/master/Install/dns > /dev/null 2>&1
+    pkg upgrade > /dev/null 2>&1
+    pkg install wget -y > /dev/null 2>&1
+    wget https://github.com/rodrigo12xd/SSHPLUS/raw/master/Install/dns > /dev/null 2>&1
     echo -e "\n${RED}[${YELLOW}!${RED}] ${YELLOW}SCRIPT BAIXADO ! DA PROXIMA VEZ\nEXECULTE APENAS O COMANDO ${RED}(${GREEN}slowdns${RED})\n${YELLOW}MESMO QUE VOCÃŠ ESTEJA OFFLINE !${SCOLOR}"
     chmod +x dns
 }
