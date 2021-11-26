@@ -1,1 +1,265 @@
-kj
+{
+ "Version": "1.0.1",
+ "ReleaseNotes": "",
+ "Servers": [
+  {
+   "Name": "BR | FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server01.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server01.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server01.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online01.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "True"
+  },
+  {
+   "Name": "BR 02| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server02.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server02.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server02.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online02.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "True"
+  },
+  {
+   "Name": "BR 03| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server03.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server03.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server03.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online03.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "True"
+  },
+  {
+   "Name": "BR 04| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server04.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server04.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server04.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online04.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "False"
+  },
+  {
+   "Name": "BR 05| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server05.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server05.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server05.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online05.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "False"
+  },
+  {
+   "Name": "BR 06| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server06.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server06.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server06.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online06.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "False"
+  },
+  {
+   "Name": "BR 07| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server07.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server07.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server07.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online07.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "False"
+  },
+  {
+   "Name": "USA 08| TIM SOCKS FREE",
+   "FLAG": "us.png",
+   "ServerIP": "server11.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "",
+   "SSLPort": "",
+   "TlsPAY": "",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online11.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "800",
+   "Timer": "True"
+  },
+  {
+   "Name": "USA 09| FREE",
+   "FLAG": "us.png",
+   "ServerIP": "server12.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server12.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server12.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online12.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "800",
+   "Timer": "true"
+  },
+  {
+   "Name": "USA 10| FREE",
+   "FLAG": "us.png",
+   "ServerIP": "server13.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server13.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server13.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "1414",
+   "Pass": "1414",
+   "OnlineUrl": "http://online13.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "800",
+   "Timer": "False"
+  }
+ ],
+ "Networks": [
+  {
+   "Name": "VIVO",
+   "Payload": "GET \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "vivo.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Proxy"
+  },
+  {
+   "Name": "VIVO TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "vivo.kiritossh.xyz",
+   "ProxyIP": "vivo.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Tlsws"
+  },
+  {
+   "Name": "TIM TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "tim.kiritossh.xyz",
+   "ProxyIP": "tim.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Tlsws"
+  },
+  {
+   "Name": "TIM SOCKS",
+   "Payload": "HTTP/ 2\nHOST : m.opera.com\n\n",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "",
+   "ProxyPort": "",
+   "Info": "Direct"
+  },
+  {
+   "Name": "TIM SOCKS 02",
+   "Payload": "ACL buzzfeed.com HTTP/1.1[lf]Host:buzzfeed.com[lf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "",
+   "ProxyPort": "",
+   "Info": "Direct"
+  },
+  {
+   "Name": "TIM SOCKS 03",
+   "Payload": "HTTP/1.1 [lf]CONNECT HTTP/1.1[lf][lf]|[lf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "",
+   "ProxyPort": "",
+   "Info": "Direct"
+  },
+  {
+   "Name": "CLARO",
+   "Payload": "GET \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Proxy"
+  },
+  {
+   "Name": "CLARO TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "claro.kiritossh.xyz",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Tlsws"
+  },
+  {
+   "Name": "CLARO FLEX",
+   "Payload": "",
+   "SNI": "m.waze.com",
+   "TlsIP": "",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Ssl"
+  },
+  {
+   "Name": "CLARO CONTROLE",
+   "Payload": "",
+   "SNI": "c.whatsapp.net",
+   "TlsIP": "",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Ssl"
+  },
+  {
+   "Name": "CLARO PÓS",
+   "Payload": "",
+   "SNI": "m.twitter.com",
+   "TlsIP": "",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Ssl"
+  },
+  {
+   "Name": "OI",
+   "Payload": "GET \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "oii.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Proxy"
+  },
+  {
+   "Name": "OI TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "oii.kiritossh.xyz",
+   "ProxyIP": "oii.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Tlsws"
+  }
+ ]
+}
