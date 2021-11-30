@@ -1,1 +1,266 @@
-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
+{
+ "Version": "1.0.1",
+ "ReleaseNotes": "",
+ "Idbuild": "14",
+ "Servers": [
+  {
+   "Name": "BR | FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server01.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server01.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server01.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online01.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "true"
+  },
+  {
+   "Name": "BR 02| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server02.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server02.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server02.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online02.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "true"
+  },
+  {
+   "Name": "BR 03| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server03.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server03.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server03.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online03.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "true"
+  },
+  {
+   "Name": "BR 04| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server04.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server04.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server04.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online04.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "false"
+  },
+  {
+   "Name": "BR 05| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server05.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server05.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server05.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online05.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "false"
+  },
+  {
+   "Name": "BR 06| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server06.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server06.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server06.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online06.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "false"
+  },
+  {
+   "Name": "BR 07| FREE",
+   "FLAG": "br.png",
+   "ServerIP": "server07.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server07.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server07.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online07.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "1500",
+   "Timer": "false"
+  },
+  {
+   "Name": "USA 08| TIM SOCKS FREE",
+   "FLAG": "us.png",
+   "ServerIP": "server11.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "",
+   "SSLPort": "",
+   "TlsPAY": "",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online11.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "800",
+   "Timer": "true"
+  },
+  {
+   "Name": "USA 09| FREE",
+   "FLAG": "us.png",
+   "ServerIP": "server12.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server12.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server12.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online12.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "800",
+   "Timer": "true"
+  },
+  {
+   "Name": "USA 10| FREE",
+   "FLAG": "us.png",
+   "ServerIP": "server13.kiritossh.xyz",
+   "ServerPort": "80",
+   "TlsSNI": "server13.kiritossh.xyz",
+   "SSLPort": "443",
+   "TlsPAY": "GET \/ HTTP\/1.1[crlf]Host: server13.kiritossh.xyz[crlf]Upgrade: websocket[crlf][crlf]",
+   "User": "9191",
+   "Pass": "9191",
+   "OnlineUrl": "http://online13.kiritossh.xyz:8888/server/online",
+   "LimiteServ": "800",
+   "Timer": "false"
+  }
+ ],
+ "Networks": [
+  {
+   "Name": "VIVO",
+   "Payload": "GET \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "vivo.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Proxy"
+  },
+  {
+   "Name": "VIVO TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "vivo.kiritossh.xyz",
+   "ProxyIP": "vivo.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Tlsws"
+  },
+  {
+   "Name": "TIM TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "tim.kiritossh.xyz",
+   "ProxyIP": "tim.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Tlsws"
+  },
+  {
+   "Name": "TIM SOCKS",
+   "Payload": "HTTP/ 2\nHOST : m.opera.com\n\n",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "",
+   "ProxyPort": "",
+   "Info": "Direct"
+  },
+  {
+   "Name": "TIM SOCKS 02",
+   "Payload": "ACL buzzfeed.com HTTP/1.1[lf]Host:buzzfeed.com[lf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "",
+   "ProxyPort": "",
+   "Info": "Direct"
+  },
+  {
+   "Name": "TIM SOCKS 03",
+   "Payload": "HTTP/1.1 [lf]CONNECT HTTP/1.1[lf][lf]|[lf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "",
+   "ProxyPort": "",
+   "Info": "Direct"
+  },
+  {
+   "Name": "CLARO",
+   "Payload": "GET \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Proxy"
+  },
+  {
+   "Name": "CLARO TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "claro.kiritossh.xyz",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Tlsws"
+  },
+  {
+   "Name": "CLARO FLEX",
+   "Payload": "",
+   "SNI": "m.waze.com",
+   "TlsIP": "",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Ssl"
+  },
+  {
+   "Name": "CLARO CONTROLE",
+   "Payload": "",
+   "SNI": "c.whatsapp.net",
+   "TlsIP": "",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Ssl"
+  },
+  {
+   "Name": "CLARO PÓS",
+   "Payload": "",
+   "SNI": "m.twitter.com",
+   "TlsIP": "",
+   "ProxyIP": "claro.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Ssl"
+  },
+  {
+   "Name": "OI",
+   "Payload": "GET \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf]",
+   "SNI": "",
+   "TlsIP": "",
+   "ProxyIP": "oii.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Proxy"
+  },
+  {
+   "Name": "OI TLS",
+   "Payload": "",
+   "SNI": "",
+   "TlsIP": "oii.kiritossh.xyz",
+   "ProxyIP": "oii.kiritossh.xyz",
+   "ProxyPort": "80",
+   "Info": "Tlsws"
+  }
+ ]
+}
