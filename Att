@@ -1,6 +1,8 @@
 {
  "Version": "1.0.1",
  "ReleaseNotes": "",
+ "IdBuild": "14",
+ "UpdateNotes": "Atualização Disponivel na PlayStore(V12)\n\nApós atualizar limpe os dados e cachê do app para remover bugs.\n\n",
  "Servers": [
   {
    "Name": "BR | FREE",
