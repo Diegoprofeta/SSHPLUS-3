@@ -78,7 +78,7 @@ criar_user2() {
 }
 
 criaruser() {
-    _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/${message_from_username}/${message_from_username} | awk '{print $NF}')
+    _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/kiritosshxd/kiritosshxd | awk '{print $NF}')
         [[ "1" -gt "$_limTotal" ]] && {
             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
                 --text "$(echo -e "❌ VC NAO TEM LIMITE SUFICIENTE ❌\n\nLimite Atual: $_limTotal ")" \
