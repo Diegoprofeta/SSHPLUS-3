@@ -149,6 +149,14 @@ ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
 fi
 }
 
+#enviar app
+enviarapp() {
+    ShellBot.sendDocument --chat_id ${id_admin} \
+        --document "@/root/CONECT4G.APK" \
+        --caption "$(echo -e "⚜️CONECT4G⚜️")"
+    return 0
+}
+
 #informacoes usuario
 infouser () {
 	ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
@@ -160,11 +168,12 @@ infouser () {
 unset botao1
 botao1=''
 ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '♻️GERA TESTE♻️' --callback_data 'gerarssh'
-ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '🔰BAIXAR APLICATIVO🔰' --callback_data '2' --url 'https://play.google.com/store/apps/details?id=com.conecta4g.vpn'
+ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '🔰BAIXAR APLICATIVO🔰' --callback_data 'enviarapp'
 ShellBot.InlineKeyboardButton --button 'botao1' --line 3 --text '💲COMPRAR ACESSO💲' --callback_data '3' --url 'https://t.me/kiritosshxd'
 ShellBot.regHandleFunction --function criarteste --callback_data gerarssh
-ShellBot.regHandleFunction --function criarteste2 --callback_data gerarssh2
+ShellBot.regHandleFunction --function criarteste2 --callback_data enviarapp
 ShellBot.regHandleFunction --function criarteste3 --callback_data gerarssh3
+
 unset keyboard1
 keyboard1="$(ShellBot.InlineKeyboardMarkup -b 'botao1')"
 while :; do
