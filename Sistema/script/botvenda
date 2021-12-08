@@ -12,9 +12,12 @@ menu() {
         msg+="<b>⚜️SEJAM BEM VINDOS⚜️<b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         msg+="<b>VENDEDOR OFICIAL DA SOCKSLITE<b>"
-        msg+="<p>OPERADORAS:</p><p>🟢VIVO (ON)</p><p>🟡TIM (Regiões)</p><p>🟡OI (Regiões)</p>"
+        msg+="<b>OPERADORAS:<b>"
+	msg+="🟢VIVO (ON)"
+	msg+="🟡TIM (Regiões)"
+	msg+="🟡OI (Regiões)"
         msg+="VALOR DO ACESSO: 10 MENSAL"
-        msg+="⚠️SÓ CHAME SE REALMENTE FOR COMPRAR⚠️"
+        msg+="⚠️<b>SÓ CHAME SE REALMENTE FOR COMPRAR<b>⚠️"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --reply_markup "$keyboard1" \
