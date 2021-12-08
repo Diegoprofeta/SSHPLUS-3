@@ -1,8 +1,8 @@
 #!/bin/bash
 clear
 #--------@kiritosshxd-----------#
-source ShellBot2.sh
-ShellBot.init --token "5035924385:AAGTutTUP9lW_mfuz8hJmgvozmVeC1-7Zg4" --monitor --flush
+source ShellBot.sh
+ShellBot.init --token "1999518553:AAEdKpGEHa3-zb5y_sgQxOyPet25LxkOkhg" --monitor --flush
 ShellBot.username
 
 # - Funcao menu
