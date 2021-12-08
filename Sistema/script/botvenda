@@ -152,7 +152,7 @@ fi
 
 #enviar app
 enviarapp() {
-    ShellBot.sendDocument --chat_id ${message_chat_id[$id]} \
+    ShellBot.sendDocument --chat_id ${callback_query_message_chat_id} \
         --document "@/root/CONECT4G.apk" \
     return 0
 }
