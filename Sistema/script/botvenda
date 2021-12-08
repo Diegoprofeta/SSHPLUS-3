@@ -21,9 +21,9 @@ ShellBot.username
 # - Funcao menu
 menu() {
     local msg
-        msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>             SEJAM BEM VINDOS</b>\n"
-        msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
+        msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
+        msg+="<b>    SEJAM BEM VINDOS</b>\n"
+        msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         msg+="<b>VENDEDOR OFICIAL DO SOCKSLITE</b>\n"
 	msg+="<b>VALOR:</b> 10 MENSAL\n"
 	msg+="<b>PIX EMAIL: </b>rodrigorocha5733@gmail.com\n"
