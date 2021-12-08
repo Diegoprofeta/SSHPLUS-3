@@ -151,10 +151,9 @@ fi
 
 #enviar app
 enviarapp() {
-    ShellBot.sendDocument --chat_id ${message_from_id[$id]} \
-        --document "@/root/CONECT4G.apk" \
-        --caption "$(echo -e "⚜️CONECT4G⚜️")"
-    return 0
+  ShellBot.sendDocument --chat_id ${message_from_id[$id]} \
+  --document "@/root/CONECT4G.apk" \
+  return 0
 }
 
 #informacoes usuario
