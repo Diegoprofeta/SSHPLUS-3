@@ -30,7 +30,7 @@ criarteste() {
         --text "VC JA CRIOU SSH HOJE !"
       return 0
     }
-    usuario=$(echo teste$(( RANDOM% + 250 )))
+    usuario=$(echo lite$(( RANDOM% + 99999 )))
     senha=$((RANDOM% + 99999))
     limite='1'
     tempo='2'
