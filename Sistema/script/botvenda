@@ -28,7 +28,7 @@ menu() {
 	msg+="<b>OPERADORAS DISPONIVEIS:<b>"
 	msg+="🟢VIVO(ON)"
 	msg+="🟡TIM(REGIÕES)"
-	msg+="<b>PIX PARA PAGAMENTO:<b> rodrigorocha5733@gmail.com"
+	msg+="<b>PIX PARA PAGAMENTO: rodrigorocha5733@gmail.com<b>"
 	msg+="<b>APERTE EM COMPRA ACESSO E ENVIE SEU COMPROVANTE<b>"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
