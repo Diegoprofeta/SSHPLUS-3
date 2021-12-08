@@ -79,12 +79,12 @@ criar_user2() {
 
 criaruser() {
     _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/kiritosshxd/kiritosshxd | awk '{print $NF}')
-        [[ "1" -gt "$_limTotal" ]] && {
-            ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                --text "$(echo -e "❌ VC NAO TEM LIMITE SUFICIENTE ❌\n\nLimite Atual: $_limTotal ")" \
-                --parse_mode html
-            return 0
-            }
+    if $_limTotal == 0 {
+      ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
+      --text "$(echo -e "❌ VC NAO TEM LIMITE SUFICIENTE ❌\n\nLimite Atual: $_limTotal ")" \
+      --parse_mode html
+      return 0
+    }
     IP=$(cat /etc/IP)
     usuario=$(echo user$(( RANDOM% + 99999 )))
     senha=$((RANDOM% + 99999))
