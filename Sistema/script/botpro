@@ -92,7 +92,7 @@ criaruser() {
 
     echo "usuario $usuario $validade $senha criado"
     ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-    --text "<b>✅ CRIADO COM SUCESSO ✅</b>\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\nLIMITE: <code>$limite<code>\n⏳ EXPIRA EM: 31 Dias" \
+    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\nLIMITE: <code>$limite</code>\n\n⏳ Expira em: 31 Dias")" \
     --parse_mode html
     return 0
 }
