@@ -21,9 +21,15 @@ ShellBot.username
 menu() {
     local msg
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>oi</b>\n"
+        msg+="<b>SEJAM BEM VINDOS</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
-        msg+="oi"
+        msg+="<b>⚜️VENDEDOR OFICIAL DO SOCKSLITE⚜️<b>"
+	msg+="<b>PREÇO: 10 MENSAL<b>"
+	msg+="<b>OPERADORAS DISPONIVEIS:<b>"
+	msg+="🟢VIVO(ON)"
+	msg+="🟡TIM(REGIÕES)"
+	msg+="<b>PIX PARA PAGAMENTO:<b> rodrigorocha5733@gmail.com"
+	msg+="<b>APERTE EM COMPRA ACESSO E ENVIE SEU COMPROVANTE<b>"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --reply_markup "$keyboard1" \
