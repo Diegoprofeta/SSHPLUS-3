@@ -81,10 +81,9 @@ criaruser() {
     _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/kiritosshxd/kiritosshxd | awk '{print $NF}')
     limite='0'
     [[ "$limite" == "$_limTotal" ]] && {
-        ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-        --text "$(echo -e "❌ VC NAO TEM LIMITE SUFICIENTE ❌\n\nLimite Atual: $_limTotal ")" \
-        --parse_mode html
-        return 0
+      ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
+        --text "VOCÊ NÃO TEM SALDO DISPONIVEL"
+      return 0
     }
 
     IP=$(cat /etc/IP)
