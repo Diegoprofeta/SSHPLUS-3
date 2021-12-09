@@ -78,10 +78,10 @@ criar_user2() {
 }
 
 criaruser() {
+    user=${callback_query_message_chat_username}
     _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/$user/$user | awk '{print $NF}')
     limite='0'
     padrao="1"
-    user=${callback_query_message_chat_username}
     [[ "$limite" == "$_limTotal" ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
         --text "VOCÊ NÃO TEM SALDO DISPONIVEL"
