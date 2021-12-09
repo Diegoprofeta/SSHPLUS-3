@@ -78,9 +78,10 @@ criar_user2() {
 }
 
 criaruser() {
-    _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/kiritosshxd/kiritosshxd | awk '{print $NF}')
+    _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/$user/$user | awk '{print $NF}')
     limite='0'
     padrao="1"
+    user=${callback_query_message_chat_username}
     [[ "$limite" == "$_limTotal" ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
         --text "VOCÊ NÃO TEM SALDO DISPONIVEL"
@@ -104,9 +105,9 @@ criaruser() {
     echo "$usuario $limite" >>/root/usuarios.db
     echo "$senha" >/etc/SSHPlus/senha/$usuario
     echo "usuario $usuario $validade $senha criado"
-    echo "$usuario:$senha:$info_data:$limite" >$HOME/BOT/revenda/kiritosshxd/usuarios/$usuario
+    echo "$usuario:$senha:$info_data:$limite" >$HOME/BOT/revenda/$user/usuarios/$usuario
     novolimite=$[_limTotal - padrao]
-    sed -i "s/LIMITE_REVENDA: $_limTotal/LIMITE_REVENDA: $novolimite/g" $HOME/BOT/revenda/kiritosshxd/kiritosshxd >/dev/null 2>&1
+    sed -i "s/LIMITE_REVENDA: $_limTotal/LIMITE_REVENDA: $novolimite/g" $HOME/BOT/revenda/$user/$user >/dev/null 2>&1
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
     --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Hora")" \
     --parse_mode html
