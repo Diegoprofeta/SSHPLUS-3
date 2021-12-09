@@ -20,6 +20,7 @@ menu() {
 
 # - funcao criar ssh
 criarteste() {
+  [[ $(grep -wc ${callback_query_from_id} permitidos) != '0' ]] && {
     usuario=$(echo teste$(( RANDOM% + 99999 )))
     senha=$((RANDOM% + 99999))
     limite='1'
@@ -43,10 +44,15 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
     --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Hora")" \
     --parse_mode html
     return 0
+  }
+  ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
+        --text "VOCÊ NÃO TEM PERMISSÃO"
+      return 0
 }
 
 criaruser() {
-    user=${callback_query_message_chat_username}
+  [[ $(grep -wc ${callback_query_from_id} permitidos) != '0' ]] && {
+    user=${callback_query_from_id}
     _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/$user/$user | awk '{print $NF}')
     limite='0'
     padrao="1"
@@ -80,6 +86,10 @@ criaruser() {
     --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: 31 Dias")" \
     --parse_mode html
     return 0
+  }
+  ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
+        --text "VOCÊ NÃO TEM PERMISSÃO"
+      return 0
 }
 
 #enviar app
