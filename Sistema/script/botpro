@@ -45,28 +45,6 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
     return 0
 }
 
-criar_user2() {
-  username=$(echo user$(( RANDOM% + 99999 )))
-  password=$((RANDOM% + 99999))
-  sshlimiter='1'
-  dias='31'
-  [[ "$(grep -wc $username /etc/passwd)" != '0' ]] && {
-    ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "USUARIO GERADO JÁ FOI CADASTRADO, TENTE NOVAMENTE"
-      return 0
-  }
-  final=$(date "+%Y-%m-%d" -d "+$dias days")
-  gui=$(date "+%d/%m/%Y" -d "+$dias days")
-  pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-  useradd -e $final -M -s /bin/false -p $pass $username >/dev/null 2>&1 &
-  echo "$username" >/etc/SSHPlus/senha/$username
-  echo "$username $sshlimiter" >>/root/usuarios.db
-  ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-    --text "<b>✅ CRIADO COM SUCESSO ✅</b>\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\nLIMITE: <code>$sshlimiter<code>\n⏳ EXPIRA EM: 31 Dias" \
-    --parse_mode html
-    return 0
-}
-
 criaruser() {
     user=${callback_query_message_chat_username}
     _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/$user/$user | awk '{print $NF}')
