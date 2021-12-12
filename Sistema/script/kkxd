@@ -107,13 +107,7 @@ criaruser() {
     ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
       --text 'Senha:' \
       --reply_markup "$(ShellBot.ForceReply)" # Força a resposta.
-
-    while true
-    do
-    if [ "${message_from_id[$id]}" != null ]; then
-    break
-    fi
-    done
+     read resp
     echo "Nome: ${message_text[$id]}" > $HOME/CAD_ARQ
     nome22=$(grep -w 'Nome' $HOME/CAD_ARQ | awk '{print $NF}')
 
