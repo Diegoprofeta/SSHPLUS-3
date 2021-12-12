@@ -50,7 +50,7 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
       return 0
 }
 
-criaruser() {
+criaruser2() {
   [[ $(grep -wc ${callback_query_from_id} permitidos) != '0' ]] && {
     user=${callback_query_from_id}
     _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/$user/$user | awk '{print $NF}')
@@ -92,7 +92,7 @@ criaruser() {
       return 0
 }
 
-criaruser2() {
+criaruser() {
   [[ $(grep -wc ${callback_query_from_id} permitidos) != '0' ]] && {
     user=${callback_query_from_id}
     _limTotal=$(grep -w 'LIMITE_REVENDA' $HOME/BOT/revenda/$user/$user | awk '{print $NF}')
@@ -104,9 +104,11 @@ criaruser2() {
       return 0
     }
 
-    ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
-            --text "👤 CRIAR USUARIO 👤\n\nNome do usuario:" \
-            --reply_markup "$(ShellBot.ForceReply)"
+    ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
+      --text 'Senha:' \
+      --reply_markup "$(ShellBot.ForceReply)" # Força a resposta.
+      ;;
+      'Senha:')
 
     echo "Nome: ${message_text[$id]}" > $HOME/CAD_ARQ
     nome22=$(grep -w 'Nome' $HOME/CAD_ARQ | awk '{print $NF}')
