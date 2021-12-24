@@ -170,7 +170,7 @@ class ConnectionHandler(threading.Thread):
             port = int(host[i+1:])
             host = host[:i]
         else:
-            if self.method=='CONNECT':
+            if self.method=='GET':
                 port = 443
             else:
                 port = 80
@@ -182,7 +182,7 @@ class ConnectionHandler(threading.Thread):
         self.target.connect(address)
 
     def method_CONNECT(self, path):
-        self.log += ' - CONNECT ' + path
+        self.log += ' - GET ' + path
         
         self.connect_target(path)
         self.client.sendall(RESPONSE)
