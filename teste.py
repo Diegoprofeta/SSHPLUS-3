@@ -1,17 +1,22 @@
-
+#!/usr/bin/env python
+# encoding: utf-8
 import socket, threading, thread, select, signal, sys, time, getopt
+from random import randint
 
-# CONFIG
-LISTENING_ADDR = '0.0.0.0'
-LISTENING_PORT = 1080
 PASS = ''
-
-# CONST
+LISTENING_ADDR = '0.0.0.0'
+try:
+   LISTENING_PORT = int(sys.argv[1])
+except:
+   LISTENING_PORT = 80
 BUFLEN = 4096 * 4
 TIMEOUT = 60
+MSG = ''
+COR = '<font color="null">'
+FTAG = '</font>'
 DEFAULT_HOST = "127.0.0.1:22"
-RESPONSE = 'HTTP/1.1 101 $msgbanner \r\n\r\n'
-
+RESPONSE = "HTTP/1.1 101 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"
+ 
 class Server(threading.Thread):
     def __init__(self, host, port):
         threading.Thread.__init__(self)
@@ -113,7 +118,7 @@ class ConnectionHandler(threading.Thread):
             hostPort = self.findHeader(self.client_buffer, 'X-Real-Host')
             
             if hostPort == '':
-                hostPort = DEFAULT_HOST
+                hostPort = "127.0.0.1:" + randint(22,30)
 
             split = self.findHeader(self.client_buffer, 'X-Split')
 
@@ -220,9 +225,9 @@ class ConnectionHandler(threading.Thread):
 
 
 def print_usage():
-    print 'Usage: proxy.py -p <port>'
-    print '       proxy.py -b <bindAddr> -p <port>'
-    print '       proxy.py -b 0.0.0.0 -p 1080'
+    print 'Use: proxy.py -p <port>'
+    print '       proxy.py -b <ip> -p <porta>'
+    print '       proxy.py -b 0.0.0.0 -p 22'
 
 def parse_args(argv):
     global LISTENING_ADDR
@@ -245,12 +250,11 @@ def parse_args(argv):
 
 def main(host=LISTENING_ADDR, port=LISTENING_PORT):
     
-    print "\n ==============================\n"
-    print "\n         PYTHON PROXY          \n"
-    print "\n ==============================\n"
-    print "corriendo ip: " + LISTENING_ADDR
-    print "corriendo port: " + str(LISTENING_PORT) + "\n"
-    print "Se ha Iniciado Por Favor Cierre el Terminal\n"
+    print "\033[0;34m━"*8,"\033[1;32m PROXY WEBSOCKET","\033[0;34m━"*8,"\n"
+    print "\033[1;33mIP:\033[1;32m " + LISTENING_ADDR
+    print "\033[1;33mPORTA:\033[1;32m " + str(LISTENING_PORT) + "\n"
+    print "\033[0;34m━"*10,"\033[1;32m VPSMANAGER","\033[0;34m━\033[1;37m"*11,"\n"
+    
     
     server = Server(LISTENING_ADDR, LISTENING_PORT)
     server.start()
@@ -259,7 +263,7 @@ def main(host=LISTENING_ADDR, port=LISTENING_PORT):
         try:
             time.sleep(2)
         except KeyboardInterrupt:
-            print 'Stopping...'
+            print 'Parando...'
             server.close()
             break
     
