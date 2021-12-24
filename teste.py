@@ -34,6 +34,15 @@ class Server(threading.Thread):
         self.soc.listen(0)
         self.running = True
 
+        try:                    
+            while self.running:
+                try:
+                    c, addr = self.soc.accept()
+                    c.setblocking(1)
+        finally:
+            self.running = False
+            self.soc.close()
+            
     def printLog(self, log):
         self.logLock.acquire()
         print log
