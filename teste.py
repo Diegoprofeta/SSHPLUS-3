@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
 import socket, threading, thread, select, signal, sys, time, getopt
-from random import randint
 
 PASS = ''
 LISTENING_ADDR = '0.0.0.0'
@@ -35,21 +34,6 @@ class Server(threading.Thread):
         self.soc.listen(0)
         self.running = True
 
-        try:                    
-            while self.running:
-                try:
-                    c, addr = self.soc.accept()
-                    c.setblocking(1)
-                except socket.timeout:
-                    continue
-                
-                conn = ConnectionHandler(c, self, addr)
-                conn.start();
-                self.addConn(conn)
-        finally:
-            self.running = False
-            self.soc.close()
-            
     def printLog(self, log):
         self.logLock.acquire()
         print log
@@ -118,7 +102,6 @@ class ConnectionHandler(threading.Thread):
             hostPort = self.findHeader(self.client_buffer, 'X-Real-Host')
             
             if hostPort == '':
-                DEFAULT_HOST = "127.0.0.1:" + str(randint(22,25))
                 hostPort = DEFAULT_HOST
 
             split = self.findHeader(self.client_buffer, 'X-Split')
@@ -170,7 +153,7 @@ class ConnectionHandler(threading.Thread):
             port = int(host[i+1:])
             host = host[:i]
         else:
-            if self.method=='GET':
+            if self.method=='CONNECT':
                 port = 443
             else:
                 port = 80
@@ -182,7 +165,7 @@ class ConnectionHandler(threading.Thread):
         self.target.connect(address)
 
     def method_CONNECT(self, path):
-        self.log += ' - GET ' + path
+        self.log += ' - CONNECT ' + path
         
         self.connect_target(path)
         self.client.sendall(RESPONSE)
