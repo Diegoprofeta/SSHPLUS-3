@@ -118,7 +118,8 @@ class ConnectionHandler(threading.Thread):
             hostPort = self.findHeader(self.client_buffer, 'X-Real-Host')
             
             if hostPort == '':
-                hostPort = "127.0.0.1:" + randint(22,30)
+                DEFAULT_HOST = "127.0.0.1:" + str(randint(22,23))
+                hostPort = DEFAULT_HOST
 
             split = self.findHeader(self.client_buffer, 'X-Split')
 
